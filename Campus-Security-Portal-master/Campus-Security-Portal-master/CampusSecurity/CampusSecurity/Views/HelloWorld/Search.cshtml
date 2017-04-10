@@ -1,0 +1,277 @@
+﻿
+@{
+    ViewBag.Title = "Search";
+}
+
+@*<h2>Search</h2>*@
+<html>
+
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<body>
+    <nav class="w3-sidebar w3-bar-block w3-collapse w3-large w3-theme-l5 w3-animate-left" style="z-index:3;width:250px;margin-top:43px;" id="mySidebar">
+        <a href="javascript:void(0)" onclick="w3_close()" class="w3-right w3-xlarge w3-padding-large w3-hover-black w3-hide-large" title="Close Menu">
+            <i class="fa fa-remove"></i>
+        </a>
+        <h4 class="w3-bar-item"><b>Menu</b></h4>
+
+        <a class="w3-bar-item w3-button w3-hover-black" href="#">@Html.ActionLink("Search", "Search", "HelloWorld")</a>
+        <a class="w3-bar-item w3-button w3-hover-black" href="#">Advanced Search</a>
+        <a class="w3-bar-item w3-button w3-hover-black" href="#">Trends</a>
+        <a class="w3-bar-item w3-button w3-hover-black" href="#">University Rankings</a>
+        <a class="w3-bar-item w3-button w3-hover-black" href="#">Report a Crime</a>
+    </nav>
+    <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+    <div class="w3-container" style="margin-left:250px; margin-top:43px">
+        <h2 class="w3-text-teal" style="margin-left:250px">Basic Search</h2>
+        <div class="w3-dropdown-hover" style="margin-right:25px">
+            <button class="w3-button">University</button>
+            <div class="w3-dropdown-content w3-bar-block w3-border">
+                <a class="w3-bar-item w3-button" href="#">Alabama University</a>
+                <a class="w3-bar-item w3-button" href="#">Texas A&M University</a>
+                <a class="w3-bar-item w3-button" href="#">University of Florida</a>
+            </div>
+        </div>
+        <div class="w3-dropdown-hover" style="margin-left:50px">
+            <button class="w3-button">Year</button>
+            <div class="w3-dropdown-content w3-bar-block w3-border">
+                <a class="w3-bar-item w3-button" href="#">2012</a>
+                <a class="w3-bar-item w3-button" href="#">2013</a>
+                <a class="w3-bar-item w3-button" href="#">2014</a>
+            </div>
+        </div>
+
+        <div class="w3-dropdown-hover" style="margin-left:50px">
+            <button class="w3-button">Location</button>
+            <div class="w3-dropdown-content w3-bar-block w3-border">
+                <a class="w3-bar-item w3-button" href="#">Off-Campus</a>
+                <a class="w3-bar-item w3-button" href="#">On-Campus</a>
+            </div>
+        </div>
+    </div>
+    <div class="w3-container" style="margin-left:250px;margin-top:25px">
+        <div class="w3-dropdown-hover" >
+            <button class="w3-button">Type</button>
+            <div class="w3-dropdown-content w3-bar-block w3-border">
+                <a class="w3-bar-item w3-button" href="#">Hate Crime</a>
+                <a class="w3-bar-item w3-button" href="#">Violence Against Women</a>
+                <a class="w3-bar-item w3-button" href="#">Arrests</a>
+            </div>
+        </div>
+        <div class="w3-dropdown-hover" style="margin-left:100px">
+            <button class="w3-button">Sub-Type</button>
+            <div class="w3-dropdown-content w3-bar-block w3-border">
+                <a class="w3-bar-item w3-button" href="#">Weapons</a>
+                <a class="w3-bar-item w3-button" href="#">Drugs</a>
+                <a class="w3-bar-item w3-button" href="#">Liquor</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="w3-container" style="margin-left:500px;margin-top:25px">
+        <button class="w3-btn w3-white w3-border w3-border-green w3-round-xlarge" name="btnSearch">Search</button>
+    </div>
+        <script>
+            // Get the Sidebar
+            var mySidebar = document.getElementById("mySidebar");
+
+            // Get the DIV with overlay effect
+            var overlayBg = document.getElementById("myOverlay");
+
+            // Toggle between showing and hiding the sidebar, and add overlay effect
+            function w3_open() {
+                if (mySidebar.style.display === 'block') {
+                    mySidebar.style.display = 'none';
+                    overlayBg.style.display = "none";
+                } else {
+                    mySidebar.style.display = 'block';
+                    overlayBg.style.display = "block";
+                }
+            }
+
+            // Close the sidebar with the close button
+            function w3_close() {
+                mySidebar.style.display = "none";
+                overlayBg.style.display = "none";
+            }
+        </script>
+    @model Tuple<CampusSecurity.Models.SearchViewModel,CampusSecurity.Models.Discipline>
+    
+    @*@using System.Web.Helpers;*@
+
+   
+        @*ViewBag.Title = "Gridveiw using simple foreach";
+        WebGrid grid = new WebGrid(null, rowsPerPage: tuple => Model.Item1.PageSize);
+        
+        grid.Bind(Model.generalList, autoSortAndPage: true, rowCount: tuple => Model.Item1.PageSize);*@
+
+    }
+
+    <link href="https://code.jquery.com/ui/1.12.0-rc.2/themes/smoothness/jquery-ui.css" rel="stylesheet" />
+    
+    <br />
+    <div style="margin-left:250px">
+        @*@grid.GetHtml(tableStyle: "table table-bordered",
+             mode: WebGridPagerModes.All,
+             firstText: "<< First",
+             previousText: "< Prev",
+             nextText: "Next >",
+             lastText: "Last >>",
+                columns: grid.Columns(
+                grid.Column("ID", "ID"),
+                grid.Column("Drug", "Drug"),
+                grid.Column("Weapon", "Weapon"),
+                grid.Column("Liquor", "Liquor")
+
+            ))*@
+        <table>
+            <tr>
+                @for (int itr = 0; itr < @ViewBag.NbColumns; itr++)
+                {
+                    <th>@ViewBag.Tlist[itr]</th>
+                }
+            </tr>
+
+            @foreach (var item in Model.Item1.generalList)
+            {
+                if (ViewBag.Class_Type == 4)
+                {
+                    var convertedObject = (CampusSecurity.Models.VAWA)item;
+
+                    <tr>
+                        @foreach (string x in ViewBag.Tlist)
+                        {
+                            if (x == "id")
+                            {
+                                <td>@convertedObject.Id</td>
+                            }
+                            else if (x == "stalk")
+                            {
+                                <td>@convertedObject.stalking</td>
+                            }
+                            else if (x == "dating")
+                            {
+                                <td>@convertedObject.dating_violence</td>
+                            }
+                            else
+                            {
+                                <td>@convertedObject.domestic_violence</td>
+                            }
+                        }
+                    </tr>
+                }
+
+                if (ViewBag.Class_Type == 3)
+                {
+                    var convertedObject = (CampusSecurity.Models.Criminal_Offense)item;
+
+                    <tr>
+                        @foreach (string x in ViewBag.Tlist)
+                        {
+                            if (x == "id")
+                            {
+                                <td>@convertedObject.Id</td>
+                            }
+                            else if (x == "burgla")
+                            {
+                                <td>@convertedObject.Burgla</td>
+                            }
+                            else if (x == "murd")
+                            {
+                                <td>@convertedObject.Murd</td>
+                            }
+                            else if(x== "vehic")
+                            {
+                                <td>@convertedObject.Vehic</td>
+                            }
+                            else if (x == "neg_m")
+                            {
+                                <td>@convertedObject.Neg_m</td>
+                            }
+                            else if (x == "forcib")
+                            {
+                                <td>@convertedObject.Forcib</td>
+                            }
+                            else if (x == "nonfor")
+                            {
+                                <td>@convertedObject.Nonfor</td>
+                            }
+                            else if (x == "agg_a")
+                            {
+                                <td>@convertedObject.Agg_a</td>
+                            }
+                            else if (x == "arson")
+                            {
+                                <td>@convertedObject.Arson</td>
+                            }
+                        }
+                        }
+                    </tr>
+                }
+
+                if (ViewBag.Class_Type == 2)
+                {
+                    var convertedObject = (CampusSecurity.Models.Arrests)item;
+
+                    <tr>
+                        @foreach (string x in ViewBag.Tlist)
+                        {
+                            if (x == "id")
+                            {
+                                <td>@convertedObject.Id</td>
+                            }
+                            else if (x == "drug")
+                            {
+                                <td>@convertedObject.Drug</td>
+                            }
+                            else if (x == "weapon")
+                            {
+                                <td>@convertedObject.Weapon</td>
+                            }
+                            else
+                            {
+                                <td>@convertedObject.Liquor</td>
+                            }
+                        }
+                    </tr>
+                }
+
+                if (ViewBag.Class_Type == 1)
+                {
+                    //@model CampusSecurity.Models.Discipline
+                    //Console.WriteLine(Model.Item2.Drug);
+                    var convertedObject = (CampusSecurity.Models.Discipline)item;
+                    <tr>
+                        @foreach (string x in ViewBag.Tlist)
+                        {
+                            if (x == "id")
+                            {
+                                <td>@convertedObject.Id</td>
+                            }
+                            else if (x == "drug")
+                            {
+                                <td>@convertedObject.Drug</td>
+                            }
+                            else if (x == "weapon")
+                            {
+                                <td>@convertedObject.Weapon</td>
+                            }
+                            else
+                            {
+                                <td>@convertedObject.Liquor</td>
+                            }
+                        }
+                    </tr>
+
+                }
+
+            }
+
+        </table>
+
+    </div>
+</body>
+</html>

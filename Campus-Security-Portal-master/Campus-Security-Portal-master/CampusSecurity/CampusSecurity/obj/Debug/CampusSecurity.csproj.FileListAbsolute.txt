@@ -1,0 +1,247 @@
+c:\users\raji\documents\visual studio 2015\Projects\CampusSecurity\CampusSecurity\bin\ApplicationInsights.config
+c:\users\raji\documents\visual studio 2015\Projects\CampusSecurity\CampusSecurity\bin\roslyn\csc.exe
+c:\users\raji\documents\visual studio 2015\Projects\CampusSecurity\CampusSecurity\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+c:\users\raji\documents\visual studio 2015\Projects\CampusSecurity\CampusSecurity\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+c:\users\raji\documents\visual studio 2015\Projects\CampusSecurity\CampusSecurity\bin\roslyn\Microsoft.CodeAnalysis.dll
+c:\users\raji\documents\visual studio 2015\Projects\CampusSecurity\CampusSecurity\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+c:\users\raji\documents\visual studio 2015\Projects\CampusSecurity\CampusSecurity\bin\roslyn\Microsoft.CSharp.Core.targets
+c:\users\raji\documents\visual studio 2015\Projects\CampusSecurity\CampusSecurity\bin\roslyn\Microsoft.VisualBasic.Core.targets
+c:\users\raji\documents\visual studio 2015\Projects\CampusSecurity\CampusSecurity\bin\roslyn\System.Collections.Immutable.dll
+c:\users\raji\documents\visual studio 2015\Projects\CampusSecurity\CampusSecurity\bin\roslyn\System.Reflection.Metadata.dll
+c:\users\raji\documents\visual studio 2015\Projects\CampusSecurity\CampusSecurity\bin\roslyn\vbc.exe
+c:\users\raji\documents\visual studio 2015\Projects\CampusSecurity\CampusSecurity\bin\roslyn\VBCSCompiler.exe
+c:\users\raji\documents\visual studio 2015\Projects\CampusSecurity\CampusSecurity\bin\roslyn\VBCSCompiler.exe.config
+c:\users\raji\documents\visual studio 2015\Projects\CampusSecurity\CampusSecurity\bin\CampusSecurity.dll.config
+c:\users\raji\documents\visual studio 2015\Projects\CampusSecurity\CampusSecurity\bin\CampusSecurity.dll
+c:\users\raji\documents\visual studio 2015\Projects\CampusSecurity\CampusSecurity\bin\CampusSecurity.pdb
+c:\users\raji\documents\visual studio 2015\Projects\CampusSecurity\CampusSecurity\bin\Antlr3.Runtime.dll
+c:\users\raji\documents\visual studio 2015\Projects\CampusSecurity\CampusSecurity\bin\EntityFramework.dll
+c:\users\raji\documents\visual studio 2015\Projects\CampusSecurity\CampusSecurity\bin\EntityFramework.SqlServer.dll
+c:\users\raji\documents\visual studio 2015\Projects\CampusSecurity\CampusSecurity\bin\Microsoft.AI.Agent.Intercept.dll
+c:\users\raji\documents\visual studio 2015\Projects\CampusSecurity\CampusSecurity\bin\Microsoft.AI.DependencyCollector.dll
+c:\users\raji\documents\visual studio 2015\Projects\CampusSecurity\CampusSecurity\bin\Microsoft.AI.PerfCounterCollector.dll
+c:\users\raji\documents\visual studio 2015\Projects\CampusSecurity\CampusSecurity\bin\Microsoft.AI.ServerTelemetryChannel.dll
+c:\users\raji\documents\visual studio 2015\Projects\CampusSecurity\CampusSecurity\bin\Microsoft.AI.Web.dll
+c:\users\raji\documents\visual studio 2015\Projects\CampusSecurity\CampusSecurity\bin\Microsoft.AI.WindowsServer.dll
+c:\users\raji\documents\visual studio 2015\Projects\CampusSecurity\CampusSecurity\bin\Microsoft.ApplicationInsights.dll
+c:\users\raji\documents\visual studio 2015\Projects\CampusSecurity\CampusSecurity\bin\Microsoft.AspNet.Identity.Core.dll
+c:\users\raji\documents\visual studio 2015\Projects\CampusSecurity\CampusSecurity\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+c:\users\raji\documents\visual studio 2015\Projects\CampusSecurity\CampusSecurity\bin\Microsoft.AspNet.Identity.Owin.dll
+c:\users\raji\documents\visual studio 2015\Projects\CampusSecurity\CampusSecurity\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+c:\users\raji\documents\visual studio 2015\Projects\CampusSecurity\CampusSecurity\bin\Microsoft.Owin.dll
+c:\users\raji\documents\visual studio 2015\Projects\CampusSecurity\CampusSecurity\bin\Microsoft.Owin.Host.SystemWeb.dll
+c:\users\raji\documents\visual studio 2015\Projects\CampusSecurity\CampusSecurity\bin\Microsoft.Owin.Security.Cookies.dll
+c:\users\raji\documents\visual studio 2015\Projects\CampusSecurity\CampusSecurity\bin\Microsoft.Owin.Security.dll
+c:\users\raji\documents\visual studio 2015\Projects\CampusSecurity\CampusSecurity\bin\Microsoft.Owin.Security.Facebook.dll
+c:\users\raji\documents\visual studio 2015\Projects\CampusSecurity\CampusSecurity\bin\Microsoft.Owin.Security.Google.dll
+c:\users\raji\documents\visual studio 2015\Projects\CampusSecurity\CampusSecurity\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+c:\users\raji\documents\visual studio 2015\Projects\CampusSecurity\CampusSecurity\bin\Microsoft.Owin.Security.OAuth.dll
+c:\users\raji\documents\visual studio 2015\Projects\CampusSecurity\CampusSecurity\bin\Microsoft.Owin.Security.Twitter.dll
+c:\users\raji\documents\visual studio 2015\Projects\CampusSecurity\CampusSecurity\bin\Microsoft.Web.Infrastructure.dll
+c:\users\raji\documents\visual studio 2015\Projects\CampusSecurity\CampusSecurity\bin\Newtonsoft.Json.dll
+c:\users\raji\documents\visual studio 2015\Projects\CampusSecurity\CampusSecurity\bin\Owin.dll
+c:\users\raji\documents\visual studio 2015\Projects\CampusSecurity\CampusSecurity\bin\System.Web.Helpers.dll
+c:\users\raji\documents\visual studio 2015\Projects\CampusSecurity\CampusSecurity\bin\System.Web.Mvc.dll
+c:\users\raji\documents\visual studio 2015\Projects\CampusSecurity\CampusSecurity\bin\System.Web.Optimization.dll
+c:\users\raji\documents\visual studio 2015\Projects\CampusSecurity\CampusSecurity\bin\System.Web.Razor.dll
+c:\users\raji\documents\visual studio 2015\Projects\CampusSecurity\CampusSecurity\bin\System.Web.WebPages.Deployment.dll
+c:\users\raji\documents\visual studio 2015\Projects\CampusSecurity\CampusSecurity\bin\System.Web.WebPages.dll
+c:\users\raji\documents\visual studio 2015\Projects\CampusSecurity\CampusSecurity\bin\System.Web.WebPages.Razor.dll
+c:\users\raji\documents\visual studio 2015\Projects\CampusSecurity\CampusSecurity\bin\WebGrease.dll
+c:\users\raji\documents\visual studio 2015\Projects\CampusSecurity\CampusSecurity\bin\Microsoft.AI.DependencyCollector.xml
+c:\users\raji\documents\visual studio 2015\Projects\CampusSecurity\CampusSecurity\bin\Microsoft.AI.ServerTelemetryChannel.xml
+c:\users\raji\documents\visual studio 2015\Projects\CampusSecurity\CampusSecurity\bin\Microsoft.AI.Web.xml
+c:\users\raji\documents\visual studio 2015\Projects\CampusSecurity\CampusSecurity\bin\Microsoft.AI.WindowsServer.xml
+c:\users\raji\documents\visual studio 2015\Projects\CampusSecurity\CampusSecurity\bin\Microsoft.ApplicationInsights.xml
+c:\users\raji\documents\visual studio 2015\Projects\CampusSecurity\CampusSecurity\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+c:\users\raji\documents\visual studio 2015\Projects\CampusSecurity\CampusSecurity\bin\System.Web.Helpers.xml
+c:\users\raji\documents\visual studio 2015\Projects\CampusSecurity\CampusSecurity\bin\System.Web.Mvc.xml
+c:\users\raji\documents\visual studio 2015\Projects\CampusSecurity\CampusSecurity\bin\System.Web.Optimization.xml
+c:\users\raji\documents\visual studio 2015\Projects\CampusSecurity\CampusSecurity\bin\System.Web.Razor.xml
+c:\users\raji\documents\visual studio 2015\Projects\CampusSecurity\CampusSecurity\bin\System.Web.WebPages.xml
+c:\users\raji\documents\visual studio 2015\Projects\CampusSecurity\CampusSecurity\bin\System.Web.WebPages.Deployment.xml
+c:\users\raji\documents\visual studio 2015\Projects\CampusSecurity\CampusSecurity\bin\System.Web.WebPages.Razor.xml
+c:\users\raji\documents\visual studio 2015\Projects\CampusSecurity\CampusSecurity\bin\Antlr3.Runtime.pdb
+c:\users\raji\documents\visual studio 2015\Projects\CampusSecurity\CampusSecurity\bin\Newtonsoft.Json.xml
+c:\users\raji\documents\visual studio 2015\Projects\CampusSecurity\CampusSecurity\bin\EntityFramework.xml
+c:\users\raji\documents\visual studio 2015\Projects\CampusSecurity\CampusSecurity\bin\EntityFramework.SqlServer.xml
+c:\users\raji\documents\visual studio 2015\Projects\CampusSecurity\CampusSecurity\bin\Microsoft.AspNet.Identity.Core.xml
+c:\users\raji\documents\visual studio 2015\Projects\CampusSecurity\CampusSecurity\bin\Microsoft.AspNet.Identity.Owin.xml
+c:\users\raji\documents\visual studio 2015\Projects\CampusSecurity\CampusSecurity\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+c:\users\raji\documents\visual studio 2015\Projects\CampusSecurity\CampusSecurity\bin\Microsoft.Owin.xml
+c:\users\raji\documents\visual studio 2015\Projects\CampusSecurity\CampusSecurity\bin\Microsoft.Owin.Host.SystemWeb.xml
+c:\users\raji\documents\visual studio 2015\Projects\CampusSecurity\CampusSecurity\bin\Microsoft.Owin.Security.xml
+c:\users\raji\documents\visual studio 2015\Projects\CampusSecurity\CampusSecurity\bin\Microsoft.Owin.Security.Facebook.xml
+c:\users\raji\documents\visual studio 2015\Projects\CampusSecurity\CampusSecurity\bin\Microsoft.Owin.Security.Cookies.xml
+c:\users\raji\documents\visual studio 2015\Projects\CampusSecurity\CampusSecurity\bin\Microsoft.Owin.Security.OAuth.xml
+c:\users\raji\documents\visual studio 2015\Projects\CampusSecurity\CampusSecurity\bin\Microsoft.Owin.Security.Google.xml
+c:\users\raji\documents\visual studio 2015\Projects\CampusSecurity\CampusSecurity\bin\Microsoft.Owin.Security.Twitter.xml
+c:\users\raji\documents\visual studio 2015\Projects\CampusSecurity\CampusSecurity\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+c:\users\raji\documents\visual studio 2015\Projects\CampusSecurity\CampusSecurity\obj\Debug\CampusSecurity.csprojResolveAssemblyReference.cache
+c:\users\raji\documents\visual studio 2015\Projects\CampusSecurity\CampusSecurity\obj\Debug\CampusSecurity.dll
+c:\users\raji\documents\visual studio 2015\Projects\CampusSecurity\CampusSecurity\obj\Debug\CampusSecurity.pdb
+D:\Divya\MS\UFL\SEM2\DBMS\Project\CampusSecurity\CampusSecurity\bin\ApplicationInsights.config
+D:\Divya\MS\UFL\SEM2\DBMS\Project\CampusSecurity\CampusSecurity\bin\roslyn\csc.exe
+D:\Divya\MS\UFL\SEM2\DBMS\Project\CampusSecurity\CampusSecurity\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Divya\MS\UFL\SEM2\DBMS\Project\CampusSecurity\CampusSecurity\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Divya\MS\UFL\SEM2\DBMS\Project\CampusSecurity\CampusSecurity\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Divya\MS\UFL\SEM2\DBMS\Project\CampusSecurity\CampusSecurity\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Divya\MS\UFL\SEM2\DBMS\Project\CampusSecurity\CampusSecurity\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Divya\MS\UFL\SEM2\DBMS\Project\CampusSecurity\CampusSecurity\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Divya\MS\UFL\SEM2\DBMS\Project\CampusSecurity\CampusSecurity\bin\roslyn\System.Collections.Immutable.dll
+D:\Divya\MS\UFL\SEM2\DBMS\Project\CampusSecurity\CampusSecurity\bin\roslyn\System.Reflection.Metadata.dll
+D:\Divya\MS\UFL\SEM2\DBMS\Project\CampusSecurity\CampusSecurity\bin\roslyn\vbc.exe
+D:\Divya\MS\UFL\SEM2\DBMS\Project\CampusSecurity\CampusSecurity\bin\roslyn\VBCSCompiler.exe
+D:\Divya\MS\UFL\SEM2\DBMS\Project\CampusSecurity\CampusSecurity\bin\roslyn\VBCSCompiler.exe.config
+D:\Divya\MS\UFL\SEM2\DBMS\Project\CampusSecurity\CampusSecurity\bin\CampusSecurity.dll.config
+D:\Divya\MS\UFL\SEM2\DBMS\Project\CampusSecurity\CampusSecurity\bin\CampusSecurity.dll
+D:\Divya\MS\UFL\SEM2\DBMS\Project\CampusSecurity\CampusSecurity\bin\CampusSecurity.pdb
+D:\Divya\MS\UFL\SEM2\DBMS\Project\CampusSecurity\CampusSecurity\bin\Antlr3.Runtime.dll
+D:\Divya\MS\UFL\SEM2\DBMS\Project\CampusSecurity\CampusSecurity\bin\EntityFramework.dll
+D:\Divya\MS\UFL\SEM2\DBMS\Project\CampusSecurity\CampusSecurity\bin\EntityFramework.SqlServer.dll
+D:\Divya\MS\UFL\SEM2\DBMS\Project\CampusSecurity\CampusSecurity\bin\Microsoft.AI.Agent.Intercept.dll
+D:\Divya\MS\UFL\SEM2\DBMS\Project\CampusSecurity\CampusSecurity\bin\Microsoft.AI.DependencyCollector.dll
+D:\Divya\MS\UFL\SEM2\DBMS\Project\CampusSecurity\CampusSecurity\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\Divya\MS\UFL\SEM2\DBMS\Project\CampusSecurity\CampusSecurity\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\Divya\MS\UFL\SEM2\DBMS\Project\CampusSecurity\CampusSecurity\bin\Microsoft.AI.Web.dll
+D:\Divya\MS\UFL\SEM2\DBMS\Project\CampusSecurity\CampusSecurity\bin\Microsoft.AI.WindowsServer.dll
+D:\Divya\MS\UFL\SEM2\DBMS\Project\CampusSecurity\CampusSecurity\bin\Microsoft.ApplicationInsights.dll
+D:\Divya\MS\UFL\SEM2\DBMS\Project\CampusSecurity\CampusSecurity\bin\Microsoft.AspNet.Identity.Core.dll
+D:\Divya\MS\UFL\SEM2\DBMS\Project\CampusSecurity\CampusSecurity\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\Divya\MS\UFL\SEM2\DBMS\Project\CampusSecurity\CampusSecurity\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\Divya\MS\UFL\SEM2\DBMS\Project\CampusSecurity\CampusSecurity\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Divya\MS\UFL\SEM2\DBMS\Project\CampusSecurity\CampusSecurity\bin\Microsoft.Owin.dll
+D:\Divya\MS\UFL\SEM2\DBMS\Project\CampusSecurity\CampusSecurity\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\Divya\MS\UFL\SEM2\DBMS\Project\CampusSecurity\CampusSecurity\bin\Microsoft.Owin.Security.Cookies.dll
+D:\Divya\MS\UFL\SEM2\DBMS\Project\CampusSecurity\CampusSecurity\bin\Microsoft.Owin.Security.dll
+D:\Divya\MS\UFL\SEM2\DBMS\Project\CampusSecurity\CampusSecurity\bin\Microsoft.Owin.Security.Facebook.dll
+D:\Divya\MS\UFL\SEM2\DBMS\Project\CampusSecurity\CampusSecurity\bin\Microsoft.Owin.Security.Google.dll
+D:\Divya\MS\UFL\SEM2\DBMS\Project\CampusSecurity\CampusSecurity\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+D:\Divya\MS\UFL\SEM2\DBMS\Project\CampusSecurity\CampusSecurity\bin\Microsoft.Owin.Security.OAuth.dll
+D:\Divya\MS\UFL\SEM2\DBMS\Project\CampusSecurity\CampusSecurity\bin\Microsoft.Owin.Security.Twitter.dll
+D:\Divya\MS\UFL\SEM2\DBMS\Project\CampusSecurity\CampusSecurity\bin\Microsoft.Web.Infrastructure.dll
+D:\Divya\MS\UFL\SEM2\DBMS\Project\CampusSecurity\CampusSecurity\bin\Newtonsoft.Json.dll
+D:\Divya\MS\UFL\SEM2\DBMS\Project\CampusSecurity\CampusSecurity\bin\Oracle.ManagedDataAccess.dll
+D:\Divya\MS\UFL\SEM2\DBMS\Project\CampusSecurity\CampusSecurity\bin\Owin.dll
+D:\Divya\MS\UFL\SEM2\DBMS\Project\CampusSecurity\CampusSecurity\bin\System.Web.Helpers.dll
+D:\Divya\MS\UFL\SEM2\DBMS\Project\CampusSecurity\CampusSecurity\bin\System.Web.Mvc.dll
+D:\Divya\MS\UFL\SEM2\DBMS\Project\CampusSecurity\CampusSecurity\bin\System.Web.Optimization.dll
+D:\Divya\MS\UFL\SEM2\DBMS\Project\CampusSecurity\CampusSecurity\bin\System.Web.Razor.dll
+D:\Divya\MS\UFL\SEM2\DBMS\Project\CampusSecurity\CampusSecurity\bin\System.Web.WebPages.Deployment.dll
+D:\Divya\MS\UFL\SEM2\DBMS\Project\CampusSecurity\CampusSecurity\bin\System.Web.WebPages.dll
+D:\Divya\MS\UFL\SEM2\DBMS\Project\CampusSecurity\CampusSecurity\bin\System.Web.WebPages.Razor.dll
+D:\Divya\MS\UFL\SEM2\DBMS\Project\CampusSecurity\CampusSecurity\bin\WebGrease.dll
+D:\Divya\MS\UFL\SEM2\DBMS\Project\CampusSecurity\CampusSecurity\bin\Microsoft.AI.DependencyCollector.xml
+D:\Divya\MS\UFL\SEM2\DBMS\Project\CampusSecurity\CampusSecurity\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\Divya\MS\UFL\SEM2\DBMS\Project\CampusSecurity\CampusSecurity\bin\Microsoft.AI.Web.xml
+D:\Divya\MS\UFL\SEM2\DBMS\Project\CampusSecurity\CampusSecurity\bin\Microsoft.AI.WindowsServer.xml
+D:\Divya\MS\UFL\SEM2\DBMS\Project\CampusSecurity\CampusSecurity\bin\Microsoft.ApplicationInsights.xml
+D:\Divya\MS\UFL\SEM2\DBMS\Project\CampusSecurity\CampusSecurity\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Divya\MS\UFL\SEM2\DBMS\Project\CampusSecurity\CampusSecurity\bin\System.Web.Helpers.xml
+D:\Divya\MS\UFL\SEM2\DBMS\Project\CampusSecurity\CampusSecurity\bin\System.Web.Mvc.xml
+D:\Divya\MS\UFL\SEM2\DBMS\Project\CampusSecurity\CampusSecurity\bin\System.Web.Optimization.xml
+D:\Divya\MS\UFL\SEM2\DBMS\Project\CampusSecurity\CampusSecurity\bin\System.Web.Razor.xml
+D:\Divya\MS\UFL\SEM2\DBMS\Project\CampusSecurity\CampusSecurity\bin\System.Web.WebPages.xml
+D:\Divya\MS\UFL\SEM2\DBMS\Project\CampusSecurity\CampusSecurity\bin\System.Web.WebPages.Deployment.xml
+D:\Divya\MS\UFL\SEM2\DBMS\Project\CampusSecurity\CampusSecurity\bin\System.Web.WebPages.Razor.xml
+D:\Divya\MS\UFL\SEM2\DBMS\Project\CampusSecurity\CampusSecurity\bin\Antlr3.Runtime.pdb
+D:\Divya\MS\UFL\SEM2\DBMS\Project\CampusSecurity\CampusSecurity\bin\Newtonsoft.Json.xml
+D:\Divya\MS\UFL\SEM2\DBMS\Project\CampusSecurity\CampusSecurity\bin\EntityFramework.xml
+D:\Divya\MS\UFL\SEM2\DBMS\Project\CampusSecurity\CampusSecurity\bin\EntityFramework.SqlServer.xml
+D:\Divya\MS\UFL\SEM2\DBMS\Project\CampusSecurity\CampusSecurity\bin\Microsoft.AspNet.Identity.Core.xml
+D:\Divya\MS\UFL\SEM2\DBMS\Project\CampusSecurity\CampusSecurity\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\Divya\MS\UFL\SEM2\DBMS\Project\CampusSecurity\CampusSecurity\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\Divya\MS\UFL\SEM2\DBMS\Project\CampusSecurity\CampusSecurity\bin\Microsoft.Owin.xml
+D:\Divya\MS\UFL\SEM2\DBMS\Project\CampusSecurity\CampusSecurity\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\Divya\MS\UFL\SEM2\DBMS\Project\CampusSecurity\CampusSecurity\bin\Microsoft.Owin.Security.xml
+D:\Divya\MS\UFL\SEM2\DBMS\Project\CampusSecurity\CampusSecurity\bin\Microsoft.Owin.Security.Facebook.xml
+D:\Divya\MS\UFL\SEM2\DBMS\Project\CampusSecurity\CampusSecurity\bin\Microsoft.Owin.Security.Cookies.xml
+D:\Divya\MS\UFL\SEM2\DBMS\Project\CampusSecurity\CampusSecurity\bin\Microsoft.Owin.Security.OAuth.xml
+D:\Divya\MS\UFL\SEM2\DBMS\Project\CampusSecurity\CampusSecurity\bin\Microsoft.Owin.Security.Google.xml
+D:\Divya\MS\UFL\SEM2\DBMS\Project\CampusSecurity\CampusSecurity\bin\Microsoft.Owin.Security.Twitter.xml
+D:\Divya\MS\UFL\SEM2\DBMS\Project\CampusSecurity\CampusSecurity\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\Divya\MS\UFL\SEM2\DBMS\Project\CampusSecurity\CampusSecurity\obj\Debug\CampusSecurity.csprojResolveAssemblyReference.cache
+D:\Divya\MS\UFL\SEM2\DBMS\Project\CampusSecurity\CampusSecurity\obj\Debug\CampusSecurity.dll
+D:\Divya\MS\UFL\SEM2\DBMS\Project\CampusSecurity\CampusSecurity\obj\Debug\CampusSecurity.pdb
+A:\Spring 2017\DBMS\CampusSecurity\CampusSecurity\bin\ApplicationInsights.config
+A:\Spring 2017\DBMS\CampusSecurity\CampusSecurity\bin\roslyn\csc.exe
+A:\Spring 2017\DBMS\CampusSecurity\CampusSecurity\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+A:\Spring 2017\DBMS\CampusSecurity\CampusSecurity\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+A:\Spring 2017\DBMS\CampusSecurity\CampusSecurity\bin\roslyn\Microsoft.CodeAnalysis.dll
+A:\Spring 2017\DBMS\CampusSecurity\CampusSecurity\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+A:\Spring 2017\DBMS\CampusSecurity\CampusSecurity\bin\roslyn\Microsoft.CSharp.Core.targets
+A:\Spring 2017\DBMS\CampusSecurity\CampusSecurity\bin\roslyn\Microsoft.VisualBasic.Core.targets
+A:\Spring 2017\DBMS\CampusSecurity\CampusSecurity\bin\roslyn\System.Collections.Immutable.dll
+A:\Spring 2017\DBMS\CampusSecurity\CampusSecurity\bin\roslyn\System.Reflection.Metadata.dll
+A:\Spring 2017\DBMS\CampusSecurity\CampusSecurity\bin\roslyn\vbc.exe
+A:\Spring 2017\DBMS\CampusSecurity\CampusSecurity\bin\roslyn\VBCSCompiler.exe
+A:\Spring 2017\DBMS\CampusSecurity\CampusSecurity\bin\roslyn\VBCSCompiler.exe.config
+A:\Spring 2017\DBMS\CampusSecurity\CampusSecurity\bin\CampusSecurity.dll.config
+A:\Spring 2017\DBMS\CampusSecurity\CampusSecurity\bin\CampusSecurity.dll
+A:\Spring 2017\DBMS\CampusSecurity\CampusSecurity\bin\CampusSecurity.pdb
+A:\Spring 2017\DBMS\CampusSecurity\CampusSecurity\bin\Antlr3.Runtime.dll
+A:\Spring 2017\DBMS\CampusSecurity\CampusSecurity\bin\EntityFramework.dll
+A:\Spring 2017\DBMS\CampusSecurity\CampusSecurity\bin\EntityFramework.SqlServer.dll
+A:\Spring 2017\DBMS\CampusSecurity\CampusSecurity\bin\Microsoft.AI.Agent.Intercept.dll
+A:\Spring 2017\DBMS\CampusSecurity\CampusSecurity\bin\Microsoft.AI.DependencyCollector.dll
+A:\Spring 2017\DBMS\CampusSecurity\CampusSecurity\bin\Microsoft.AI.PerfCounterCollector.dll
+A:\Spring 2017\DBMS\CampusSecurity\CampusSecurity\bin\Microsoft.AI.ServerTelemetryChannel.dll
+A:\Spring 2017\DBMS\CampusSecurity\CampusSecurity\bin\Microsoft.AI.Web.dll
+A:\Spring 2017\DBMS\CampusSecurity\CampusSecurity\bin\Microsoft.AI.WindowsServer.dll
+A:\Spring 2017\DBMS\CampusSecurity\CampusSecurity\bin\Microsoft.ApplicationInsights.dll
+A:\Spring 2017\DBMS\CampusSecurity\CampusSecurity\bin\Microsoft.AspNet.Identity.Core.dll
+A:\Spring 2017\DBMS\CampusSecurity\CampusSecurity\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+A:\Spring 2017\DBMS\CampusSecurity\CampusSecurity\bin\Microsoft.AspNet.Identity.Owin.dll
+A:\Spring 2017\DBMS\CampusSecurity\CampusSecurity\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+A:\Spring 2017\DBMS\CampusSecurity\CampusSecurity\bin\Microsoft.Owin.dll
+A:\Spring 2017\DBMS\CampusSecurity\CampusSecurity\bin\Microsoft.Owin.Host.SystemWeb.dll
+A:\Spring 2017\DBMS\CampusSecurity\CampusSecurity\bin\Microsoft.Owin.Security.Cookies.dll
+A:\Spring 2017\DBMS\CampusSecurity\CampusSecurity\bin\Microsoft.Owin.Security.dll
+A:\Spring 2017\DBMS\CampusSecurity\CampusSecurity\bin\Microsoft.Owin.Security.Facebook.dll
+A:\Spring 2017\DBMS\CampusSecurity\CampusSecurity\bin\Microsoft.Owin.Security.Google.dll
+A:\Spring 2017\DBMS\CampusSecurity\CampusSecurity\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+A:\Spring 2017\DBMS\CampusSecurity\CampusSecurity\bin\Microsoft.Owin.Security.OAuth.dll
+A:\Spring 2017\DBMS\CampusSecurity\CampusSecurity\bin\Microsoft.Owin.Security.Twitter.dll
+A:\Spring 2017\DBMS\CampusSecurity\CampusSecurity\bin\Microsoft.Web.Infrastructure.dll
+A:\Spring 2017\DBMS\CampusSecurity\CampusSecurity\bin\Newtonsoft.Json.dll
+A:\Spring 2017\DBMS\CampusSecurity\CampusSecurity\bin\Owin.dll
+A:\Spring 2017\DBMS\CampusSecurity\CampusSecurity\bin\System.Web.Helpers.dll
+A:\Spring 2017\DBMS\CampusSecurity\CampusSecurity\bin\System.Web.Mvc.dll
+A:\Spring 2017\DBMS\CampusSecurity\CampusSecurity\bin\System.Web.Optimization.dll
+A:\Spring 2017\DBMS\CampusSecurity\CampusSecurity\bin\System.Web.Razor.dll
+A:\Spring 2017\DBMS\CampusSecurity\CampusSecurity\bin\System.Web.WebPages.Deployment.dll
+A:\Spring 2017\DBMS\CampusSecurity\CampusSecurity\bin\System.Web.WebPages.dll
+A:\Spring 2017\DBMS\CampusSecurity\CampusSecurity\bin\System.Web.WebPages.Razor.dll
+A:\Spring 2017\DBMS\CampusSecurity\CampusSecurity\bin\WebGrease.dll
+A:\Spring 2017\DBMS\CampusSecurity\CampusSecurity\bin\Microsoft.AI.DependencyCollector.xml
+A:\Spring 2017\DBMS\CampusSecurity\CampusSecurity\bin\Microsoft.AI.ServerTelemetryChannel.xml
+A:\Spring 2017\DBMS\CampusSecurity\CampusSecurity\bin\Microsoft.AI.Web.xml
+A:\Spring 2017\DBMS\CampusSecurity\CampusSecurity\bin\Microsoft.AI.WindowsServer.xml
+A:\Spring 2017\DBMS\CampusSecurity\CampusSecurity\bin\Microsoft.ApplicationInsights.xml
+A:\Spring 2017\DBMS\CampusSecurity\CampusSecurity\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+A:\Spring 2017\DBMS\CampusSecurity\CampusSecurity\bin\System.Web.Helpers.xml
+A:\Spring 2017\DBMS\CampusSecurity\CampusSecurity\bin\System.Web.Mvc.xml
+A:\Spring 2017\DBMS\CampusSecurity\CampusSecurity\bin\System.Web.Optimization.xml
+A:\Spring 2017\DBMS\CampusSecurity\CampusSecurity\bin\System.Web.Razor.xml
+A:\Spring 2017\DBMS\CampusSecurity\CampusSecurity\bin\System.Web.WebPages.xml
+A:\Spring 2017\DBMS\CampusSecurity\CampusSecurity\bin\System.Web.WebPages.Deployment.xml
+A:\Spring 2017\DBMS\CampusSecurity\CampusSecurity\bin\System.Web.WebPages.Razor.xml
+A:\Spring 2017\DBMS\CampusSecurity\CampusSecurity\bin\Antlr3.Runtime.pdb
+A:\Spring 2017\DBMS\CampusSecurity\CampusSecurity\bin\Newtonsoft.Json.xml
+A:\Spring 2017\DBMS\CampusSecurity\CampusSecurity\bin\EntityFramework.xml
+A:\Spring 2017\DBMS\CampusSecurity\CampusSecurity\bin\EntityFramework.SqlServer.xml
+A:\Spring 2017\DBMS\CampusSecurity\CampusSecurity\bin\Microsoft.AspNet.Identity.Core.xml
+A:\Spring 2017\DBMS\CampusSecurity\CampusSecurity\bin\Microsoft.AspNet.Identity.Owin.xml
+A:\Spring 2017\DBMS\CampusSecurity\CampusSecurity\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+A:\Spring 2017\DBMS\CampusSecurity\CampusSecurity\bin\Microsoft.Owin.xml
+A:\Spring 2017\DBMS\CampusSecurity\CampusSecurity\bin\Microsoft.Owin.Host.SystemWeb.xml
+A:\Spring 2017\DBMS\CampusSecurity\CampusSecurity\bin\Microsoft.Owin.Security.xml
+A:\Spring 2017\DBMS\CampusSecurity\CampusSecurity\bin\Microsoft.Owin.Security.Facebook.xml
+A:\Spring 2017\DBMS\CampusSecurity\CampusSecurity\bin\Microsoft.Owin.Security.Cookies.xml
+A:\Spring 2017\DBMS\CampusSecurity\CampusSecurity\bin\Microsoft.Owin.Security.OAuth.xml
+A:\Spring 2017\DBMS\CampusSecurity\CampusSecurity\bin\Microsoft.Owin.Security.Google.xml
+A:\Spring 2017\DBMS\CampusSecurity\CampusSecurity\bin\Microsoft.Owin.Security.Twitter.xml
+A:\Spring 2017\DBMS\CampusSecurity\CampusSecurity\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+A:\Spring 2017\DBMS\CampusSecurity\CampusSecurity\obj\Debug\CampusSecurity.csprojResolveAssemblyReference.cache
+A:\Spring 2017\DBMS\CampusSecurity\CampusSecurity\obj\Debug\CampusSecurity.dll
+A:\Spring 2017\DBMS\CampusSecurity\CampusSecurity\obj\Debug\CampusSecurity.pdb
