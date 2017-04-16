@@ -136,48 +136,15 @@
                         type: "POST",
                         url: '@Url.Action("loadGrid", "HelloWorld")',
                         data: { "Uni": $("#uni").val(), "Year": $("#year").val(), "Location": $("#loc").val(), "Type": $("#lstType").val(), "SubType": $("#SubType").val()},//'uni=' + $("uni").val + '&year=' + $("year").val + '&loc=' + $("loc").val,
-                        //callbackSuccess: $('#GridDisplay').load('/Views/loadGrid'), function (mydata) { alert('mydata '+mydata);$("#GridDisplay").empty().html(mydata); }, // change this to include the #
-                        //dataType: Model.Item2,
                         dataType: "html",
                         success: function (data)
                         {
-                            alert("data=" + data);
+                            //alert("data=" + data);
                             $('#GridDisplay').html(data);
-                            
-                            /*alert("success");
-                            alert("data=" + data);
-                            var parsed = $.parseJSON(data);
-
-                            alert("val is ");
-                            /*$('#GridDisplay').empty();
-                            $('#GridDisplay').html(data);*/
-                            /*$('#GridDisplay').empty();
-                            $('#GridDisplay').append('<tr><th>Drug</th><th>Weapon</th><th>Liquor</th></tr>');
-                            //                            var parsed = JSON.parse(data);
-                            var val = this.Location;
-                            alert("val=" + val);
-                            $.each(data,function()
-                                {
-                                $('#GridDisplay').append('<tr><td>' + this.Name + '</td>' + '<td>' + item.Year + '</td><td>' + item.Location + '</td></tr>');
-                                });*/
-                            
                         }
                     });
 
                 }
-
-                /*function onSubmit() {
-
-                    //alert("insubmut");
-                    if (!$(this).valid()) {
-                        return false; // prevent the ajax call if validation errors
-                    }
-                    var form = $(this).serialize();
-                    //$('#GridDisplay').load(url);
-
-                    $('#GridDisplay').load(url, $('form'.Serialize()));
-                    return false;
-                }*/
             </script>
 </body>
 </html>

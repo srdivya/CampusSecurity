@@ -30,7 +30,7 @@ namespace MvcMovie.Controllers
         public ActionResult Search()
         {
             UIModel objUI = new UIModel();
-           
+           //LINQ query executed first time search is loaded. List of uni returned, converted to select list and added to objIU object
             objUI.University = getUniversity().Select(c => new SelectListItem
             {
                 Text = c.ToString(),
@@ -57,6 +57,49 @@ namespace MvcMovie.Controllers
             }).ToList();
             return View(new Tuple<UIModel,SearchViewModel>(objUI,null));
         }
+
+
+
+
+        [HttpGet]
+        public ActionResult AdvSearch()
+        {
+            UIModel objUI = new UIModel();
+            //LINQ query executed first time search is loaded. List of uni returned, converted to select list and added to objIU object
+            objUI.University = getUniversity().Select(c => new SelectListItem
+            {
+                Text = c.ToString(),
+                Value = c.ToString()
+            }).ToList();
+            List<int> lstYear = new List<int> { 2011, 2012, 2013, 2014, 2015 };
+            objUI.Year = lstYear.Select(c => new SelectListItem
+            {
+                Text = c.ToString(),
+                Value = c.ToString()
+            }).ToList();
+            List<String> lstLoc = new List<string> { "Non-campus", "On-campus", "Public Property", "Reported by Local Police", "Residence Hall" };
+            List<String> lstType = new List<string> { "Criminal Offense", "Discipline", "Arrests", "Violence Against Women", "Hate Crime" };
+            objUI.Location = lstLoc.Select(c => new SelectListItem
+            {
+                Text = c.ToString(),
+                Value = c.ToString()
+            }).ToList();
+            lstType.Sort();
+            objUI.Type = lstType.Select(c => new SelectListItem
+            {
+                Text = c.ToString(),
+                Value = c.ToString()
+            }).ToList();
+            return View(new Tuple<UIModel, SearchViewModel>(objUI, null));
+        }
+
+
+
+
+
+
+
+
 
         private List<string> getUniversity()
         {
@@ -95,7 +138,7 @@ namespace MvcMovie.Controllers
             Type = (Type == "Criminal Offense") ? "Criminal_Offense" : Type;
             sql = sql + " from " + Type + " where id in (select id from locationyear where name = '" + Uni + "' AND year = " + Year + " AND location = '" + Location + "')";
             //var temp;
-            Console.WriteLine(sql);
+            //Console.WriteLine(sql);
             if (Type == "Discipline")
             {
                 flag = 1;
@@ -174,7 +217,7 @@ namespace MvcMovie.Controllers
                     //;
 
                 }
-                connection.Close();
+                connection.Close(); 
             }
             ViewBag.NbColumns = columns;
             ViewBag.Tlist = tempList;
@@ -193,22 +236,12 @@ namespace MvcMovie.Controllers
             //model.Location.Add(new LocYear(2014, "UF", "FL", "Campus"));
             model.PageSize = 25;
             ViewBag.model = model;
-            /*using (connection)
-            {
-                connection.Open();
-                string sql = "Select NAME, STATE, YEAR, LOCATION FROM LOCATIONYEAR WHERE STATE = 'FL'";
-                OracleCommand cmd = new OracleCommand(sql, connection);
-                cmd.CommandType = System.Data.CommandType.Text;
-                OracleDataReader reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
-                    LocYear ly = new LocYear(reader.GetInt32(2), reader.GetString(0), reader.GetString(1), reader.GetString(3));
-                    model.Location.Add(ly);
-                }
-                connection.Close();
-            }*/
             return View(model);
         }
+        //public ActionResult AdvSearch()
+        //{
+        //    return View();
+        //}
 
     }
 }
