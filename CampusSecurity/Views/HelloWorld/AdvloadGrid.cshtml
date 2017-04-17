@@ -4,7 +4,7 @@
 <table class="w3-table w3-striped w3-border">
     <tr>
        
-        @foreach (var item in ViewBag.UniList)
+        @foreach (var item in Model.Item1.generalList)
         {
             <td>@item</td>
             
@@ -13,7 +13,7 @@
     </tr>
     <tr>
 
-        @foreach (var item in Model.Item1.generalList)
+        @foreach (var item in Model.Item1.idList)
         {
             <td>@item</td>
             

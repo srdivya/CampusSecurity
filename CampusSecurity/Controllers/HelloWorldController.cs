@@ -10,6 +10,9 @@ namespace MvcMovie.Controllers
 {
     public class HelloWorldController : Controller
     {
+
+
+
         // 
         // GET: /HelloWorld/ 
         static string connectionString = "Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=oracle.cise.ufl.edu)(PORT=1521)))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=orcl)));User Id = menon; Password = Zxqw29!!;";
@@ -66,7 +69,7 @@ namespace MvcMovie.Controllers
         {
             UIModel objUI = new UIModel();
             //LINQ query executed first time search is loaded. List of uni returned, converted to select list and added to objIU object
-            objUI.University = getUniversity().Select(c => new SelectListItem
+            objUI.University = getUniversityForAdv().Select(c => new SelectListItem
             {
                 Text = c.ToString(),
                 Value = c.ToString()
@@ -94,11 +97,31 @@ namespace MvcMovie.Controllers
         }
 
 
+  private List<string> getUniversityForAdv()
+        {
+            List<String> lstUni = new List<string>();
+            using (connection)
+            {
+                string temp;
+                int tempInt;
+                connection.Open();
+                string sql = "select name || '-' || branch || '-' || address || '-' || id as newname,id from locationyear where location='Non-campus' and year='2014' order by newname asc";
+                OracleCommand cmd = new OracleCommand(sql, connection);
+                cmd.CommandType = System.Data.CommandType.Text;
+                OracleDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    temp = reader.GetString(0);
+                    tempInt = reader.GetInt32(1);
+                    lstUni.Add(temp);
+                  // uniId.Add(temp, tempInt );
+                  //  System.Diagnostics.Debug.WriteLine(temp+" "+tempInt);
 
-
-
-
-
+                }
+                connection.Close();
+            }
+            return lstUni;
+        }
 
 
         private List<string> getUniversity()
@@ -231,15 +254,16 @@ namespace MvcMovie.Controllers
             //return Json(model);
         }
 
-
-
-
-
-
+        
         public ActionResult loadGridAdvanced(String[] Uni, int[] Year, String Location, String[] Type)
         {
+            //["UF", "USC"], [2012,2013,2014], "On-Campus", ["Arrests, VAWA"]
+                
+
             AdvSearchViewModel Amodel = new AdvSearchViewModel();
             Amodel.generalList = new List<string>();
+            String[] temp;
+            Amodel.idList = new List<int>();
             Amodel.PageSize = 25;
             
             //int columns = 0;
@@ -248,6 +272,8 @@ namespace MvcMovie.Controllers
             {
                 
                 Amodel.generalList.Add(Uni[itr]);
+                temp = Uni[itr].Split('-');
+                Amodel.idList.Add(Int32.Parse(temp[temp.Length-1]));
             }
             
             ViewBag.UniList = Uni;

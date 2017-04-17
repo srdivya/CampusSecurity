@@ -8,6 +8,7 @@ namespace CampusSecurity.Models
     public class AdvSearchViewModel
     {
         public List<String> generalList { get; set; }
+        public List<int> idList { get; set; }
         //pagination
         public int TotalCount { get; set; }
         public int PageSize { get; set; }
