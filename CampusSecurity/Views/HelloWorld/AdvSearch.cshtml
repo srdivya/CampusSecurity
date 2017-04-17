@@ -61,7 +61,8 @@
     <!----->
 
     <div class="w3-container" style="margin-left:500px;margin-top:25px">
-        <button class="w3-btn w3-white w3-border w3-border-green w3-round-xlarge">Search</button>
+        
+        <button class="w3-btn w3-white w3-border w3-border-green w3-round-xlarge" id="btnSearch" value="Search" onclick="senddata()">Search</button>
     </div>
 
     <!--grid display gets automatically populated by ajax call -->
@@ -93,8 +94,22 @@
                 overlayBg.style.display = "none";
             }
     </script>
+    <script>
+                function senddata() {
+                    $.ajax({
+                        type: "POST",
+                        url: '@Url.Action("loadGridAdvanced", "HelloWorld")',
+                        data: { "Uni": $("#uni").val(), "Year": $("#year").val(), "Location": $("#loc").val(), "Type": $("#lstType").val()},//'uni=' + $("uni").val + '&year=' + $("year").val + '&loc=' + $("loc").val,
+                        dataType: "html",
+                        success: function (data)
+                        {
+                            //alert("data=" + data);
+                            $('#GridDisplay').html(data);
+                        }
+                    });
 
-    <!--5:37pm-->
+                }
+    </script>
 
 </body>
 </html>

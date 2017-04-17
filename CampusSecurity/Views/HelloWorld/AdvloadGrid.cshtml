@@ -1,0 +1,25 @@
+﻿@model Tuple<CampusSecurity.Models.AdvSearchViewModel, CampusSecurity.Models.Discipline>
+
+
+<table class="w3-table w3-striped w3-border">
+    <tr>
+       
+        @foreach (var item in ViewBag.UniList)
+        {
+            <td>@item</td>
+            
+        }
+
+    </tr>
+    <tr>
+
+        @foreach (var item in Model.Item1.generalList)
+        {
+            <td>@item</td>
+            
+        }
+
+    </tr>
+
+</table>
+

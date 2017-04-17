@@ -225,7 +225,34 @@ namespace MvcMovie.Controllers
             return View("loadGrid",new Tuple<SearchViewModel, Discipline>(model, null));
             //return Json(model);
         }
-        
+
+
+
+
+
+
+        public ActionResult loadGridAdvanced(String[] Uni, int[] Year, String Location, String[] Type)
+        {
+            AdvSearchViewModel Amodel = new AdvSearchViewModel();
+            Amodel.generalList = new List<string>();
+            Amodel.PageSize = 25;
+            
+            //int columns = 0;
+            //String sql = "Select ";
+            for (int itr=0;itr<Uni.Length;itr++)
+            {
+                
+                Amodel.generalList.Add(Uni[itr]);
+            }
+            
+            ViewBag.UniList = Uni;
+            ViewBag.NbColumns = Uni[0];
+            //ViewBag.Tlist = tempList;
+           // ViewBag.Class_Type = class_type;
+            return View("AdvloadGrid", new Tuple<AdvSearchViewModel, Discipline>(Amodel, null));
+            //return Json(model);
+        }
+
 
         [HttpPost]
         public ActionResult Search(UIModel input)//string University)
