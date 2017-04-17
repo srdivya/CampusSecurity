@@ -1,30 +1,23 @@
 ﻿@model Tuple<CampusSecurity.Models.AdvSearchViewModel, CampusSecurity.Models.Discipline>
 
 
-<table class="w3-table w3-striped w3-border">
-     
-    <tr>
-        @foreach (var item in Model.Item1.answer)
+
+
+@foreach (var item in Model.Item1.answer)
+{
+    <table class="w3-table w3-striped w3-border">
+        @foreach(var item2 in item)
         {
-
-            foreach (var item2 in item)
-            {
-
-                foreach (var item3 in item2.rows)
+            <tr>
+                @foreach(var item3 in item2.rows)
                 {
                     <td>@item3</td>
                 }
-
-            }
-
-
-
-
+            </tr>
         }
+    </table>
+    <br />
+    <br />
+}
 
-    </tr>
-
-
-
-</table>
 
