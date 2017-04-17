@@ -139,22 +139,26 @@ namespace MvcMovie.Controllers
             sql = sql + " from " + Type + " where id in (select id from locationyear where name = '" + Uni + "' AND year = " + Year + " AND location = '" + Location + "')";
             //var temp;
             //Console.WriteLine(sql);
+            List<string> tempList = new List<string>();
             if (Type == "Discipline")
             {
                 flag = 1;
                 var temp = new System.Collections.Generic.List<Discipline>();
+                tempList.Add("id"); tempList.Add("drug"); tempList.Add("weapon"); tempList.Add("liquor");
                 model.generalList = temp.Cast<object>().ToList();
 
             }
             else if (Type == "Arrests")
             {
                 flag = 2;
+                tempList.Add("id"); tempList.Add("drug"); tempList.Add("weapon"); tempList.Add("liquor");
                 var temp = new System.Collections.Generic.List<Arrests>();
                 model.generalList = temp.Cast<object>().ToList();
             }
             else if (Type == "Criminal_Offense")
             {
                 flag = 3;
+                tempList.Add("id"); tempList.Add("burgla"); tempList.Add("murd"); tempList.Add("vehic"); tempList.Add("neg_m"); tempList.Add("robbe"); tempList.Add("forcib"); tempList.Add("nonfor"); tempList.Add("agg_a"); tempList.Add("arson");
                 var temp = new System.Collections.Generic.List<Criminal_Offense>();
                 model.generalList = temp.Cast<object>().ToList();
 
@@ -163,13 +167,14 @@ namespace MvcMovie.Controllers
             else if (Type == ("VAWA"))
             {
                 flag = 4;
+                tempList.Add("id"); tempList.Add("stalk"); tempList.Add("dating"); tempList.Add("domest");
                 var temp = new System.Collections.Generic.List<VAWA>();
                 model.generalList = temp.Cast<object>().ToList();
             }
             //new System.Collections.Generic.List<Discipline>();
             //model.Location.Add(new LocYear(2014, "UF", "FL", "Campus"));
             model.PageSize = 25;
-            List<string> tempList = new List<string>();
+            
             int class_type = 0;
             using (connection)
             {
@@ -187,28 +192,28 @@ namespace MvcMovie.Controllers
                     {
                         case 1:
                             Discipline di = new Discipline(reader.GetInt32(0), reader.GetInt32(1), reader.GetInt32(2), reader.GetInt32(3));
-                            tempList.Add("id"); tempList.Add("drug"); tempList.Add("weapon"); tempList.Add("liquor");
+                            
                             class_type = 1;
                             columns = 4;
                             model.generalList.Add(di);
                             break;
                         case 2:
                             Arrests ar = new Arrests(reader.GetInt32(0), reader.GetInt32(1), reader.GetInt32(2), reader.GetInt32(3));
-                            tempList.Add("id"); tempList.Add("drug"); tempList.Add("weapon"); tempList.Add("liquor");
+                            
                             columns = 4;
                             class_type = 2;
                             model.generalList.Add(ar);
                             break;
                         case 3:
                             Criminal_Offense co = new Criminal_Offense(reader.GetInt32(0), reader.GetInt32(1), reader.GetInt32(2), reader.GetInt32(3), reader.GetInt32(4), reader.GetInt32(5), reader.GetInt32(6), reader.GetInt32(7), reader.GetInt32(8), reader.GetInt32(9));
-                            tempList.Add("id"); tempList.Add("burgla"); tempList.Add("murd"); tempList.Add("vehic"); tempList.Add("neg_m"); tempList.Add("robbe"); tempList.Add("forcib"); tempList.Add("nonfor"); tempList.Add("agg_a"); tempList.Add("arson");
+                            
                             columns = 10;
                             class_type = 3;
                             model.generalList.Add(co);
                             break;
                         case 4:
                             VAWA va = new VAWA(reader.GetInt32(0), reader.GetInt32(1), reader.GetInt32(2), reader.GetInt32(3));
-                            tempList.Add("id"); tempList.Add("stalk"); tempList.Add("dating"); tempList.Add("domest");
+                            
                             columns = 4;
                             class_type = 4;
                             model.generalList.Add(va);
