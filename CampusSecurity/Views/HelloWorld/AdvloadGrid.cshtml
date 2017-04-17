@@ -2,24 +2,29 @@
 
 
 <table class="w3-table w3-striped w3-border">
+     
     <tr>
-       
-        @foreach (var item in Model.Item1.generalList)
+        @foreach (var item in Model.Item1.answer)
         {
-            <td>@item</td>
-            
+
+            foreach (var item2 in item)
+            {
+
+                foreach (var item3 in item2.rows)
+                {
+                    <td>@item3</td>
+                }
+
+            }
+
+
+
+
         }
 
     </tr>
-    <tr>
 
-        @foreach (var item in Model.Item1.idList)
-        {
-            <td>@item</td>
-            
-        }
 
-    </tr>
 
 </table>
 

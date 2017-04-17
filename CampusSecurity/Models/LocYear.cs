@@ -28,6 +28,20 @@ namespace CampusSecurity.Models
         LocYear()
         { }
     }
+
+
+    public class AdvSearchObject
+    {
+        public List<int> rows;
+        
+
+        public List<int> Rows { get { return rows; } }
+        
+    }
+
+
+
+
     public class Discipline
     {
         readonly int id;

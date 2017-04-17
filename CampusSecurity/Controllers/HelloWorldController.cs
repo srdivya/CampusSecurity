@@ -103,16 +103,16 @@ namespace MvcMovie.Controllers
             using (connection)
             {
                 string temp;
-                int tempInt;
+                //int tempInt;
                 connection.Open();
-                string sql = "select name || '-' || branch || '-' || address || '-' || id as newname,id from locationyear where location='Non-campus' and year='2014' order by newname asc";
+                string sql = "select name || ':' || branch || ':' || address as newname,id from locationyear where location='Non-campus' and year='2014' order by newname asc";
                 OracleCommand cmd = new OracleCommand(sql, connection);
                 cmd.CommandType = System.Data.CommandType.Text;
                 OracleDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
                     temp = reader.GetString(0);
-                    tempInt = reader.GetInt32(1);
+                    //tempInt = reader.GetInt32(1);
                     lstUni.Add(temp);
                   // uniId.Add(temp, tempInt );
                   //  System.Diagnostics.Debug.WriteLine(temp+" "+tempInt);
@@ -257,31 +257,57 @@ namespace MvcMovie.Controllers
         
         public ActionResult loadGridAdvanced(String[] Uni, int[] Year, String Location, String[] Type)
         {
-            //["UF", "USC"], [2012,2013,2014], "On-Campus", ["Arrests, VAWA"]
+            //["UF", "USC"], [2012,2013,2014], "On-Campus", ["Arrests", "Discipline"]
                 
 
             AdvSearchViewModel Amodel = new AdvSearchViewModel();
             Amodel.generalList = new List<string>();
+            List<AdvSearchObject> tempList = new List<AdvSearchObject>();
+            Amodel.answer = new List<List<AdvSearchObject>>();
             String[] temp;
-            Amodel.idList = new List<int>();
+            String sql;
             Amodel.PageSize = 25;
-            
-            //int columns = 0;
-            //String sql = "Select ";
-            for (int itr=0;itr<Uni.Length;itr++)
+            //int a;
+            using (connection)
             {
-                
-                Amodel.generalList.Add(Uni[itr]);
-                temp = Uni[itr].Split('-');
-                Amodel.idList.Add(Int32.Parse(temp[temp.Length-1]));
+                connection.Open();
+                for (int itr0 = 0; itr0 < Type.Length; itr0++)
+                {
+                    tempList = new List<AdvSearchObject>();
+                    for (int itr1 = 0; itr1 < Uni.Length; itr1++)
+                    {
+                        temp = Uni[itr1].Split(':');
+                        
+                        AdvSearchObject ObjOfListOfInt = new AdvSearchObject();
+                        ObjOfListOfInt.rows = new List<int>();
+                        for (int itr2 = 0; itr2 < Year.Length; itr2++)
+                        {
+                            sql = "select nvl(drug,0) + nvl(weapon,0) + nvl(liquor,0) as ItemSum from " + Type[itr0] + " where id in (select id from locationyear where name = '" + temp[0] + "' and branch = '"+ temp[1] +"' and address = '" +temp[2]+"' and year = "+Year[itr2]+" and location = '"+Location+"')";
+
+                            OracleCommand cmd = new OracleCommand(sql, connection);
+                            cmd.CommandType = System.Data.CommandType.Text;
+                            OracleDataReader reader = cmd.ExecuteReader();
+                            while(reader.Read())
+                            {
+                                
+                                ObjOfListOfInt.rows.Add(reader.GetInt32(0));
+                            }
+                            //select nvl(drug,0) + nvl(weapon,0) + nvl(liquor,0) as ItemSum from arrests where id in (select id from locationyear where name = temp[0] and branch = temp[1] and address = temp[2] and year = Year[itr2] and location = Location)
+                        }
+                        tempList.Add(ObjOfListOfInt);
+                        //Amodel.generalList.Add(Uni[itr1]);
+                    }
+                    Amodel.answer.Add(tempList);
+                }
+                connection.Close();
             }
+          
             
             ViewBag.UniList = Uni;
             ViewBag.NbColumns = Uni[0];
-            //ViewBag.Tlist = tempList;
-           // ViewBag.Class_Type = class_type;
+          
             return View("AdvloadGrid", new Tuple<AdvSearchViewModel, Discipline>(Amodel, null));
-            //return Json(model);
+            
         }
 
 
