@@ -304,7 +304,7 @@ namespace MvcMovie.Controllers
                      
             ViewBag.UniList = Uni;
             ViewBag.YearList = Year;
-          
+            ViewBag.TypeList = Type;
             return View("AdvloadGrid", new Tuple<AdvSearchViewModel, Discipline>(Amodel, null));
             
         }
