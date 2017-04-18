@@ -289,8 +289,8 @@ namespace MvcMovie.Controllers
 
             RankingsModel Rmodel = new RankingsModel();
             String sql;
-            String sendSubType;
-            String sendType;
+            String sendSubType = SubType;
+            String sendType = Type;
             if (Type == "Criminal Offense")
             {
                 sendType = "CRIMINAL_OFFENSE";
@@ -328,8 +328,9 @@ namespace MvcMovie.Controllers
             }
             else if (Type == "Arrests")
             {
-                sql = "select * from arrest_rank order by incidents desc";
                 sendType = "ARRESTS";
+                sql = "select * from arrests_rank order by incidents desc";
+                
                 if (SubType == "Drug")
                     sendSubType = "DRUG";
                 else if (SubType == "Weapon")
@@ -341,7 +342,7 @@ namespace MvcMovie.Controllers
             else
             {
                 sql = "select * from discipline_rank order by incidents desc";
-                sendType = "DISCPLINE";
+                sendType = "DISCIPLINE";
                 if (SubType == "Drug")
                     sendSubType = "DRUG";
                 else if (SubType == "Weapon")
@@ -362,18 +363,20 @@ namespace MvcMovie.Controllers
                 //cmd0.Parameters.Add(new OracleParameter("TypeFilter", sendType));
                 //cmd0.Parameters.Add(new OracleParameter("FocusFilter", sendSubType));
                 //cmd0.Parameters.Add(new OracleParameter("yearFilter", Year));
+
                 cmd0.Parameters.Add("TypeFilter", OracleDbType.Varchar2).Value = sendType;
                 cmd0.Parameters.Add("FocusFilter", OracleDbType.Varchar2).Value = sendSubType;
                 cmd0.Parameters.Add("yearFilter", OracleDbType.Int32).Value = Year;
-                OracleDataAdapter da = new OracleDataAdapter(cmd0);
+                //OracleDataAdapter da = new OracleDataAdapter(cmd0);
                 cmd0.ExecuteNonQuery();
-                
+
+                //sql = "select * from test_table";
                 OracleCommand cmd = new OracleCommand(sql, connection);
                 cmd.CommandType = System.Data.CommandType.Text;
                 OracleDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    RankingsObject robj = new RankingsObject(reader.GetString(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetInt32(3));
+                    RankingsObject robj = new RankingsObject(reader.GetString(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetInt32(4));
                     Rmodel.answer.Add(robj);
                 }
 

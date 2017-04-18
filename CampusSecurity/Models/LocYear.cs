@@ -46,9 +46,9 @@ namespace CampusSecurity.Models
         readonly String state_name;
         public int Incidents { get { return incidents; } }
         public String Uni_name { get { return uni_name; } }
-        public String Branch_name { get { return uni_name; } }
-        public String City_name { get { return uni_name; } }
-        public String State_name { get { return uni_name; } }
+        public String Branch_name { get { return branch_name; } }
+        public String City_name { get { return city_name; } }
+        public String State_name { get { return state_name; } }
 
         public RankingsObject(String uni_name, String branch_name, String city_name, String state_name, int incidents)
         {

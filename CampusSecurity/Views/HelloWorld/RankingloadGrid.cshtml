@@ -4,21 +4,24 @@
     <table class="w3-table w3-striped w3-border">
        @foreach (var item in Model.Item1.answer)
        {
-           <td>
-               @item.Uni_name
-           </td>
-        <td>
-            @item.Branch_name
-        </td>
-        <td>
-            @item.City_name
-        </td>
-        <td>
-            @item.State_name
-        </td>
-        <td>
-            @item.Incidents
-        </td>
+           <tr>
+               <td>
+                   @item.Uni_name
+               </td>
+               <td>
+                   @item.Branch_name
+               </td>
+               <td>
+                   @item.City_name
+               </td>
+               <td>
+                   @item.State_name
+               </td>
+               <td>
+                   @item.Incidents
+               </td>
+           </tr>
+        
        }
    </table>
  

@@ -130,7 +130,7 @@
                     $.ajax({
                         type: "POST",
                         url: '@Url.Action("ranking", "HelloWorld")',
-                        data: {"Year": $("#year").val(), "Type": $("#lstType").val(), "SubType": $("#SubType").val()},//'uni=' + $("uni").val + '&year=' + $("year").val + '&loc=' + $("loc").val,
+                        data: {"Year": $("#year").val(), "Type": $("#type").val(), "SubType": $("#SubType").val()},//'uni=' + $("uni").val + '&year=' + $("year").val + '&loc=' + $("loc").val,
                         dataType: "html",
                         success: function (data)
                         {
