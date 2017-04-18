@@ -333,9 +333,9 @@ namespace MvcMovie.Controllers
                 if (SubType == "Drug")
                     sendSubType = "DRUG";
                 else if (SubType == "Weapon")
-                    sendSubType = "WEAPON";
+                    sendSubType = "Weapon";
                 else
-                    sendSubType = "LIQUOR";
+                    sendSubType = "Liquor";
             }
 
             else
@@ -343,7 +343,7 @@ namespace MvcMovie.Controllers
                 sql = "select * from discipline_rank order by incidents desc";
                 sendType = "DISCPLINE";
                 if (SubType == "Drug")
-                    sendSubType = "Drug";
+                    sendSubType = "DRUG";
                 else if (SubType == "Weapon")
                     sendSubType = "Weapon";
                 else
