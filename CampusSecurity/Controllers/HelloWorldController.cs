@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
+
 namespace MvcMovie.Controllers
 {
     public class HelloWorldController : Controller
@@ -96,8 +97,35 @@ namespace MvcMovie.Controllers
             return View(new Tuple<UIModel, SearchViewModel>(objUI, null));
         }
 
+        //-------------------------
 
-  private List<string> getUniversityForAdv()
+        [HttpGet]
+        public ActionResult Rankings()
+        {
+            UIModel objUI = new UIModel();
+            //LINQ query executed first time search is loaded. List of uni returned, converted to select list and added to objIU object
+            
+            List<int> lstYear = new List<int> { 2011, 2012, 2013, 2014, 2015 };
+            objUI.Year = lstYear.Select(c => new SelectListItem
+            {
+                Text = c.ToString(),
+                Value = c.ToString()
+            }).ToList();
+            
+            List<String> lstType = new List<string> { "Criminal Offense", "Discipline", "Arrests", "Violence Against Women" };
+            
+            lstType.Sort();
+            objUI.Type = lstType.Select(c => new SelectListItem
+            {
+                Text = c.ToString(),
+                Value = c.ToString()
+            }).ToList();
+            return View(new Tuple<UIModel, SearchViewModel>(objUI, null));
+        }
+
+
+        //-------------------------
+        private List<string> getUniversityForAdv()
         {
             List<String> lstUni = new List<string>();
             using (connection)
@@ -254,7 +282,110 @@ namespace MvcMovie.Controllers
             //return Json(model);
         }
 
-        
+
+
+        public ActionResult ranking(int Year,String Type, String SubType)
+        {
+
+            RankingsModel Rmodel = new RankingsModel();
+            String sql;
+            String sendSubType;
+            String sendType;
+            if (Type == "Criminal Offense")
+            {
+                sendType = "CRIMINAL_OFFENSE";
+                sql = "select * from criminal_offense_rank order by incidents desc";
+                if (SubType == "Burglary")
+                    sendSubType = "BURGLA";
+                else if (SubType == "Murder")
+                    sendSubType = "MURD";
+                else if (SubType == "Vehicle theft")
+                    sendSubType = "VEHIC";
+                else if (SubType == "Man slaughter")
+                    sendSubType = "NEG_M";
+                else if (SubType == "Robbery")
+                    sendSubType = "ROBBE";
+                else if (SubType == "Forcible Sex offence")
+                    sendSubType = "FORCIB";
+                else if (SubType == "non-forcible sex offence")
+                    sendSubType = "NONFOR";
+                else if (SubType == "Assault")
+                    sendSubType = "AGG_A";
+                else
+                    sendSubType = "ARSON";
+
+            }
+            else if(Type=="Violence Against Women")
+            {
+                sendType = "VAWA";
+                sql = "select * from vawa_rank order by incidents desc";
+                if (SubType == "Stalking")
+                    sendSubType = "Stalk";
+                else if (SubType == "Dating violence")
+                    sendSubType = "Dating";
+                else
+                    sendSubType = "Domest";
+            }
+            else if (Type == "Arrests")
+            {
+                sql = "select * from arrest_rank order by incidents desc";
+                sendType = "ARRESTS";
+                if (SubType == "Drug")
+                    sendSubType = "DRUG";
+                else if (SubType == "Weapon")
+                    sendSubType = "WEAPON";
+                else
+                    sendSubType = "LIQUOR";
+            }
+
+            else
+            {
+                sql = "select * from discipline_rank order by incidents desc";
+                sendType = "DISCPLINE";
+                if (SubType == "Drug")
+                    sendSubType = "Drug";
+                else if (SubType == "Weapon")
+                    sendSubType = "Weapon";
+                else
+                    sendSubType = "Liquor";
+            }
+                
+
+            Rmodel.answer = new List<RankingsObject>();
+            using (connection)
+            {
+                
+                connection.Open();
+                OracleCommand cmd0 = new OracleCommand("GENERATERANKTABLE", connection);
+                cmd0.CommandType = System.Data.CommandType.StoredProcedure;
+
+                //cmd0.Parameters.Add(new OracleParameter("TypeFilter", sendType));
+                //cmd0.Parameters.Add(new OracleParameter("FocusFilter", sendSubType));
+                //cmd0.Parameters.Add(new OracleParameter("yearFilter", Year));
+                cmd0.Parameters.Add("TypeFilter", OracleDbType.Varchar2).Value = sendType;
+                cmd0.Parameters.Add("FocusFilter", OracleDbType.Varchar2).Value = sendSubType;
+                cmd0.Parameters.Add("yearFilter", OracleDbType.Int32).Value = Year;
+                OracleDataAdapter da = new OracleDataAdapter(cmd0);
+                cmd0.ExecuteNonQuery();
+                
+                OracleCommand cmd = new OracleCommand(sql, connection);
+                cmd.CommandType = System.Data.CommandType.Text;
+                OracleDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    RankingsObject robj = new RankingsObject(reader.GetString(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetInt32(3));
+                    Rmodel.answer.Add(robj);
+                }
+
+                
+                connection.Close();
+            }
+            return View("RankingloadGrid", new Tuple<RankingsModel, Discipline>(Rmodel, null));
+        }
+
+
+
+
         public ActionResult loadGridAdvanced(String[] Uni, int[] Year, String Location, String[] Type)
         {
             //["UF", "USC"], [2012,2013,2014], "On-Campus", ["Arrests", "Discipline"]
@@ -336,7 +467,7 @@ namespace MvcMovie.Controllers
             ViewBag.model = model;
             return View(model);
         }
-        //public ActionResult AdvSearch()
+        //public ActionResult Rankings()
         //{
         //    return View();
         //}

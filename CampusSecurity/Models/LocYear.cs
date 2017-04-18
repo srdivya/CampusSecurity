@@ -33,13 +33,33 @@ namespace CampusSecurity.Models
     public class AdvSearchObject
     {
         public List<int> rows;
-        
-
         public List<int> Rows { get { return rows; } }
         
     }
 
+    public class RankingsObject
+    {
+        readonly int incidents;
+        readonly String uni_name;
+        readonly String branch_name;
+        readonly String city_name;
+        readonly String state_name;
+        public int Incidents { get { return incidents; } }
+        public String Uni_name { get { return uni_name; } }
+        public String Branch_name { get { return uni_name; } }
+        public String City_name { get { return uni_name; } }
+        public String State_name { get { return uni_name; } }
 
+        public RankingsObject(String uni_name, String branch_name, String city_name, String state_name, int incidents)
+        {
+            this.incidents = incidents;
+            this.uni_name = uni_name;
+            this.branch_name = branch_name;
+            this.city_name = city_name;
+            this.state_name = state_name;
+        }
+
+    }
 
 
     public class Discipline

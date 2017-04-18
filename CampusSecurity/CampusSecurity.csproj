@@ -208,6 +208,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\LocYear.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\RankingsModel.cs" />
     <Compile Include="Models\SearchViewModel.cs" />
     <Compile Include="Models\UIModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -278,6 +279,8 @@
     <Content Include="Views\HelloWorld\loadGrid.cshtml" />
     <Content Include="Views\HelloWorld\AdvSearch.cshtml" />
     <Content Include="Views\HelloWorld\AdvloadGrid.cshtml" />
+    <Content Include="Views\HelloWorld\Rankings.cshtml" />
+    <Content Include="Views\HelloWorld\RankingloadGrid.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
