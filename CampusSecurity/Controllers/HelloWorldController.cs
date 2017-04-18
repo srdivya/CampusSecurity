@@ -46,7 +46,7 @@ namespace MvcMovie.Controllers
                 Value = c.ToString()
             }).ToList();
             List<String> lstLoc = new List<string> { "Non-campus", "On-campus", "Public Property", "Reported by Local Police", "Residence Hall" };
-            List<String> lstType = new List<string> { "Criminal Offense", "Discipline", "Arrests","Violence Against Women", "Hate Crime" };
+            List<String> lstType = new List<string> { "Criminal Offense", "Discipline", "Arrests","Violence Against Women"};
             objUI.Location = lstLoc.Select(c => new SelectListItem
             {
                 Text = c.ToString(),
@@ -81,7 +81,7 @@ namespace MvcMovie.Controllers
                 Value = c.ToString()
             }).ToList();
             List<String> lstLoc = new List<string> { "Non-campus", "On-campus", "Public Property", "Reported by Local Police", "Residence Hall" };
-            List<String> lstType = new List<string> { "Criminal Offense", "Discipline", "Arrests", "Violence Against Women", "Hate Crime" };
+            List<String> lstType = new List<string> { "Criminal Offense", "Discipline", "Arrests", "Violence Against Women"};
             objUI.Location = lstLoc.Select(c => new SelectListItem
             {
                 Text = c.ToString(),
@@ -266,6 +266,7 @@ namespace MvcMovie.Controllers
             Amodel.answer = new List<List<AdvSearchObject>>();
             String[] temp;
             String sql;
+            int flag = 0;
             Amodel.PageSize = 25;
             //int a;
             using (connection)
@@ -273,6 +274,15 @@ namespace MvcMovie.Controllers
                 connection.Open();
                 for (int itr0 = 0; itr0 < Type.Length; itr0++)
                 {
+                    if (Type[itr0].Equals("Arrests"))
+                        flag = 1;
+                    else if (Type[itr0].Equals("Criminal Offense"))
+                        flag = 2;
+                    else if (Type[itr0].Equals("Discipline"))
+                        flag = 3;
+                    else 
+                        flag = 4;
+
                     tempList = new List<AdvSearchObject>();
                     for (int itr1 = 0; itr1 < Uni.Length; itr1++)
                     {
@@ -282,7 +292,12 @@ namespace MvcMovie.Controllers
                         ObjOfListOfInt.rows = new List<int>();
                         for (int itr2 = 0; itr2 < Year.Length; itr2++)
                         {
+                            if(flag ==1 || flag ==3)
                             sql = "select nvl(drug,0) + nvl(weapon,0) + nvl(liquor,0) as ItemSum from " + Type[itr0] + " where id in (select id from locationyear where name = '" + temp[0] + "' and branch = '"+ temp[1] +"' and address = '" +temp[2]+"' and year = "+Year[itr2]+" and location = '"+Location+"')";
+                            else if(flag ==2)
+                                sql = "select nvl(burgla,0) + nvl(murd,0) + nvl(vehic,0) + nvl(neg_m,0) + nvl(robbe,0) + nvl(forcib,0) + nvl(nonfor,0) + nvl(agg_a,0) + nvl(arson,0) as ItemSum from Criminal_Offense where id in (select id from locationyear where name = '" + temp[0] + "' and branch = '" + temp[1] + "' and address = '" + temp[2] + "' and year = " + Year[itr2] + " and location = '" + Location + "')";
+                            else
+                                sql = "select nvl(stalk,0) + nvl(dating,0) + nvl(domest,0) as ItemSum from VAWA where id in (select id from locationyear where name = '" + temp[0] + "' and branch = '" + temp[1] + "' and address = '" + temp[2] + "' and year = " + Year[itr2] + " and location = '" + Location + "')";
 
                             OracleCommand cmd = new OracleCommand(sql, connection);
                             cmd.CommandType = System.Data.CommandType.Text;
