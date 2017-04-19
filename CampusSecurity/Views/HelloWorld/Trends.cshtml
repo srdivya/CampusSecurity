@@ -145,8 +145,7 @@
                         dataType: "html",
                         success: function (cdata)
                         {
-                            alert("data=" + cdata);
-
+                           // alert("data=" + cdata);
                             var data = new google.visualization.DataTable();
                             /*cdata=[{"Uni_name":"A T Still University of Health Sciences-NYU Lutheran Campus-Brooklyn-NY","Year11":0,"Year12":0,"Year13":0,"Year14":0,"Year15":0},
                             {"Uni_name":"ABC Beauty Academy-Main Campus-Richardson-TX","Year11":0,"Year12":0,"Year13":0,"Year14":0,"Year15":0}]*/
@@ -156,11 +155,13 @@
                             //alert("dataLength=" + cdata.length);
                             var cdatax = JSON.parse(cdata);
                             data.addColumn('number', 'Year');
-                            alert("datax=" + data.getColumnLabel(0));
+                           // alert("datax=" + data.getColumnLabel(0));
                             for (var i = 0; i < cdatax.length ; i++) {
-                                data.addColumn('string', cdatax[i].Uni_name);
+                               // alert(i);
+                                data.addColumn('number', cdatax[i].Uni_name);
+                               // alert("afterrrr");
                             }
-                            alert("datax=" + data.getColumnLabel(0) + data.getColumnLabel(1) + data.getColumnLabel(2) + data.getColumnLabel(3));
+                          //  alert("datax=" + data.getColumnLabel(0) + data.getColumnLabel(1) + data.getColumnLabel(2) + data.getColumnLabel(3));
                             var options = {
                                 chart: {
                                     title: 'Trends',
@@ -169,17 +170,46 @@
                                 width: 900,
                                 height: 500
                             };
-                            alert("dataxxx=" + options);
+                            //alert("dataxxx=" + options);
                             //var rowData = [cdatax[0].Uni_name, cdatax[0].Year11, cdatax[0].Year12, cdatax[0].Year13, cdatax[0].Year14, cdatax[0].Year15];
                             //data.addRow(rowData);
-                            alert("check data " + cdatax[0].Uni_name + cdatax[0].Year11 + cdatax[0].Year12 + cdatax[0].Year13 + cdatax[0].Year14 + cdatax[0].Year15);
-                            for (var i = 0; i < cdatax.length ; i++) {
-                                var rowData = [cdatax[i].Uni_name, cdatax[i].Year11, cdatax[i].Year12, cdatax[i].Year13, cdatax[i].Year14, cdatax[i].Year15];
-                                alert(i);
-                                data.addRow(rowData);
-                                alert("after " + i);
+                           // alert("check data " + cdatax[0].Uni_name + cdatax[0].Year11 + cdatax[0].Year12 + cdatax[0].Year13 + cdatax[0].Year14 + cdatax[0].Year15);
+                           
+
+
+                            for (var j = 1; j < 5; j++)
+                            {
+                                alert("new outer increment");
+                                var tempList = [2010 + j];
                                 
+                                for (var i = 0; i < cdatax.length ; i++) {
+
+                                    alert(i);
+                                    if (j == 1) {
+                                        alert(cdatax[i].Year11 + "x");
+                                        tempList.push(cdatax[i].Year11);
+                                        alert(tempList);
+                                    }
+                                        
+                                    else if (j == 2)
+                                        tempList.push(cdatax[i].Year12);
+                                    else if (j == 3)
+                                        tempList.push(cdatax[i].Year13);
+                                    else if (j == 4)
+                                        tempList.push(cdatax[i].Year14);
+                                    else
+                                        tempList.push(cdatax[i].Year15);
+                                    alert(tempList);
+
+                                }
+                                alert("xxxxx");
+                                alert(tempList);
+                                //alert("column format=" + data.getColumnLabel(0) + data.getColumnLabel(1) + data.getColumnLabel(2) + data.getColumnLabel(3));
+                                data.addRow(tempList);
                             }
+
+
+
                             alert("dataxx=" + data.getSortedRows(0));
 
                        //     data.addRows([
@@ -227,9 +257,9 @@
 
                             // Instantiate and draw our chart, passing in some options.
 
-                            alert("dataxxx=" + options);
-                            alert("dataxx=" + data.getSortedRows(0));
-                            alert("datax=" + data.getColumnLabel(0) + data.getColumnLabel(1) + data.getColumnLabel(2) + data.getColumnLabel(3));
+                            //alert("dataxxx=" + options);
+                            //alert("dataxx=" + data.getSortedRows(0));
+                            //alert("datax=" + data.getColumnLabel(0) + data.getColumnLabel(1) + data.getColumnLabel(2) + data.getColumnLabel(3));
                             var chart = new google.visualization.LineChart(document.getElementById('GridDisplay'));
                             chart.draw(data, options);
 

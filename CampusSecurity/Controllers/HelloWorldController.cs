@@ -440,7 +440,6 @@ namespace MvcMovie.Controllers
                 OracleCommand cmd2 = new OracleCommand("truncate table trends", connection);
                 cmd2.CommandType = System.Data.CommandType.Text;
                 cmd2.ExecuteNonQuery();
-
                 connection.Close();
             }
 
