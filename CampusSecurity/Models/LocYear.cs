@@ -28,6 +28,70 @@ namespace CampusSecurity.Models
         LocYear()
         { }
     }
+
+
+    public class AdvSearchObject
+    {
+        public List<int> rows;
+        public List<int> Rows { get { return rows; } }
+        
+    }
+
+    public class TrendsObject
+    {
+
+        readonly String uni_name;
+        public String Uni_name { get { return uni_name; } }
+
+        readonly int year11;
+        readonly int year12;
+        readonly int year13;
+        readonly int year14;
+        readonly int year15;
+
+        public int Year11 { get { return year11; } }
+        public int Year12 { get { return year12; } }
+        public int Year13 { get { return year13; } }
+        public int Year14 { get { return year14; } }
+        public int Year15 { get { return year15; } }
+
+        public TrendsObject(String uni_name, int year11, int year12, int year13, int year14, int year15)
+        {
+            this.uni_name = uni_name;
+            this.year11 = year11;            
+            this.year12 = year12;
+            this.year13 = year13;
+            this.year14 = year14;
+            this.year15 = year15;
+        }
+
+    }
+
+    public class RankingsObject
+    {
+        readonly int incidents;
+        readonly String uni_name;
+        readonly String branch_name;
+        readonly String city_name;
+        readonly String state_name;
+        public int Incidents { get { return incidents; } }
+        public String Uni_name { get { return uni_name; } }
+        public String Branch_name { get { return branch_name; } }
+        public String City_name { get { return city_name; } }
+        public String State_name { get { return state_name; } }
+
+        public RankingsObject(String uni_name, String branch_name, String city_name, String state_name, int incidents)
+        {
+            this.incidents = incidents;
+            this.uni_name = uni_name;
+            this.branch_name = branch_name;
+            this.city_name = city_name;
+            this.state_name = state_name;
+        }
+
+    }
+
+
     public class Discipline
     {
         readonly int id;

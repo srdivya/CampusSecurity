@@ -1,0 +1,236 @@
+﻿
+@{
+    ViewBag.Title = "Trends";
+}
+@model Tuple<CampusSecurity.Models.UIModel, CampusSecurity.Models.SearchViewModel>
+
+@*<h2>Trends</h2>*@
+
+
+<html>
+
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<body>
+    <nav class="w3-sidebar w3-bar-block w3-collapse w3-large w3-theme-l5 w3-animate-left" style="z-index:3;width:250px;margin-top:43px;" id="mySidebar">
+        <a href="javascript:void(0)" onclick="w3_close()" class="w3-right w3-xlarge w3-padding-large w3-hover-black w3-hide-large" title="Close Menu">
+            <i class="fa fa-remove"></i>
+        </a>
+        <h4 class="w3-bar-item"><b>Menu</b></h4>
+
+        <a class="w3-bar-item w3-button w3-hover-black" href="#">Search</a>
+        <a class="w3-bar-item w3-button w3-hover-black" href="#">Advanced Search</a>
+        <a class="w3-bar-item w3-button w3-hover-black" href="#">@Html.ActionLink("Trends", "Trends", "HelloWorld")</a>
+        <a class="w3-bar-item w3-button w3-hover-black" href="#">University Rankings</a>
+        <a class="w3-bar-item w3-button w3-hover-black" href="#">Report a Crime</a>
+    </nav>
+    <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+    <div class="w3-container" style="margin-left:250px; margin-top:43px">
+        <h2 class="w3-text-teal" style="margin-left:250px">Trends</h2>
+        <div>
+            <label>University</label>
+            
+        </div>
+        <div style="align-items">
+            <div class="editor-field">  @Html.ListBoxFor(m => m.Item1.University, Model.Item1.University, new { id = "uni", style = "width: 390px; margin-right:25px;float:left" }) </div>
+           
+        </div>
+
+        <div class="w3-container" style="margin-left:250px;margin-top:25px">
+            <div>
+                <label>Type</label>
+                <label style="margin-left:110px">Sub-Type</label>
+            </div>
+            <div>
+                <div class="editor-field">  @Html.DropDownListFor(m => m.Item1.Type, Model.Item1.Type, new { id = "lstType", style = "width: 100px; margin-right:25px;float:left", @onchange = "CallChangefunc(this.value)" }) </div>
+                <select id="SubType"></select>
+            </div>
+        </div>
+
+       
+
+            <div class="w3-container" style="margin-left:500px;margin-top:25px">
+                <button class="w3-btn w3-white w3-border w3-border-green w3-round-xlarge" value="Search" onclick="senddata()">Generate</button>
+            </div>
+        </div>
+
+        <div class="w3-container">
+            <h3>Bar graph generated</h3>
+            <p class="w3-large"></p>
+        </div>
+
+    <div id="GridDisplay" style="margin-top:50px;margin-left:250px">
+
+    </div>
+        <script>
+            // Get the Sidebar
+            var mySidebar = document.getElementById("mySidebar");
+
+            // Get the DIV with overlay effect
+            var overlayBg = document.getElementById("myOverlay");
+
+            // Toggle between showing and hiding the sidebar, and add overlay effect
+            function w3_open() {
+                if (mySidebar.style.display === 'block') {
+                    mySidebar.style.display = 'none';
+                    overlayBg.style.display = "none";
+                } else {
+                    mySidebar.style.display = 'block';
+                    overlayBg.style.display = "block";
+                }
+            }
+
+            // Close the sidebar with the close button
+            function w3_close() {
+                mySidebar.style.display = "none";
+                overlayBg.style.display = "none";
+            }
+        </script>
+    <script>
+                function CallChangefunc(input)
+                    {
+                    var items = '';
+                        if (input == "Arrests" || input == "Discipline")
+                        {
+                            items += "<option value='Drug'> Drug </option>";
+                            items += "<option value='Weapon'> Weapon </option>";
+                            items += "<option value='Liquor'> Liquor </option>";
+                        }
+                        else if (input == "Hate Crime")
+                        {
+                            items += "<option value='Religion'> Religion </option>";
+                            items += "<option value='Gender'> Gender </option>";
+                            items += "<option value='Disability'> Disability </option>";
+                            items += "<option value='Race'> Race </option>";
+                        }
+                        else if (input == "University ")
+                        {
+                            items += "<option value='City'> City </option>";
+                            items += "<option value='State'> State </option>";
+                            items += "<option value='Zip'> Name </option>";
+                        }
+                        else if (input == "Violence Against Women") {
+                            items += "<option value='Stalking'> Stalking </option>";
+                            items += "<option value='Dating violence'> Dating violence </option>";
+                            items += "<option value='Domestic violence'> Domestic violence </option>";
+                        }
+                        else if (input == "Criminal Offense") {
+                            items += "<option value='Burglary'> Burglary </option>";
+                            items += "<option value='Murder'> Murder </option>";
+                            items += "<option value='Vehicle theft'> Vehicle theft </option>";
+                            items += "<option value='Man slaughter'> Man slaughter </option>";
+                            items += "<option value='Robbery'> Robbery </option>";
+                            items += "<option value='Forcible Sex offence'> Forcible Sex offence </option>";
+                            items += "<option value='non-forcible sex offence'> non-forcible sex offence </option>";
+                            items += "<option value='Assault'> Assault </option>";
+                            items += "<option value='Arson'> Arson </option>";
+                        }
+                        $('#SubType').html(items);
+                }
+    </script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', { 'packages': ['corechart'] });
+
+        // Set a callback to run when the Google Visualization API is loaded.
+        //google.charts.setOnLoadCallback(senddata);
+                function senddata() {
+                    $.ajax({
+                        type: "POST",
+                        url: '@Url.Action("trends", "HelloWorld")',
+                        data: { "Uni": $("#uni").val(), "Type": $("#lstType").val(), "SubType": $("#SubType").val()},//'uni=' + $("uni").val + '&year=' + $("year").val + '&loc=' + $("loc").val,
+                        dataType: "html",
+                        success: function (cdata)
+                        {
+                            alert("data=" + cdata);
+
+                            var data = new google.visualization.DataTable();
+                            /*cdata=[{"Uni_name":"A T Still University of Health Sciences-NYU Lutheran Campus-Brooklyn-NY","Year11":0,"Year12":0,"Year13":0,"Year14":0,"Year15":0},
+                            {"Uni_name":"ABC Beauty Academy-Main Campus-Richardson-TX","Year11":0,"Year12":0,"Year13":0,"Year14":0,"Year15":0}]*/
+
+                            data.addColumn('number', 'Year');
+                            //alert("dataxxyy=" + data.getColumnLabel(0));
+                            //alert("dataLength=" + cdata.length);
+                            var cdatax = JSON.parse(cdata);
+                            for(var i = 0; i < cdatax.length ; i++) {
+                                data.addColumn('number', cdatax[i].Uni_name);
+                            }
+
+                            var options = {
+                                chart: {
+                                    title: 'Trends',
+                                    subtitle: 'Incidents over time'
+                                },
+                                width: 900,
+                                height: 500
+                            };
+                            
+                            for (var i = 0; i < cdatax.length ; i++) {
+                                data.addRows(2011+i, cdatax[i].Uni_name);
+                            }
+
+
+                            data.addRows([
+                                [2011, 37.8, 80.8, 41.8],
+                                [2012, 30.9, 69.5, 32.4],
+                                [2013, 25.4, 57, 25.7],
+                                [2014, 11.7, 18.8, 10.5],
+                                [2015, 11.9, 17.6, 10.4],
+                              
+                       ]);
+                                                    //alert("data=" + data);
+                            // Set chart options
+                            
+                            //data.addColumn('number', 'Day');
+                            //data.addColumn('number', 'Guardians of the Galaxy');
+                            //data.addColumn('number', 'The Avengers');
+                            //data.addColumn('number', 'Transformers: Age of Extinction');
+
+                            //data.addRows([
+                            //  [1, 37.8, 80.8, 41.8],
+                            //  [2, 30.9, 69.5, 32.4],
+                            //  [3, 25.4, 57, 25.7],
+                            //  [4, 11.7, 18.8, 10.5],
+                            //  [5, 11.9, 17.6, 10.4],
+                            //  [6, 8.8, 13.6, 7.7],
+                            //  [7, 7.6, 12.3, 9.6],
+                            //  [8, 12.3, 29.2, 10.6],
+                            //  [9, 16.9, 42.9, 14.8],
+                            //  [10, 12.8, 30.9, 11.6],
+                            //  [11, 5.3, 7.9, 4.7],
+                            //  [12, 6.6, 8.4, 5.2],
+                            //  [13, 4.8, 6.3, 3.6],
+                            //  [14, 4.2, 6.2, 3.4]
+                            //]);
+
+                            //data.addColumn('string', 'Topping');
+                            //data.addColumn('number', 'Slices');
+                            //data.addRows([
+                            //  ['Mushrooms', 3],
+                            //  ['Onions', 1],
+                            //  ['Olives', 1],
+                            //  ['Zucchini', 1],
+                            //  ['Pepperoni', 2]
+                            //]);
+
+                            // Instantiate and draw our chart, passing in some options.
+
+                            alert("dataxxx=" + options);
+                            alert("dataxx=" + data.getSortedRows(0));
+                            alert("datax=" + data.getColumnLabel(0) + data.getColumnLabel(1) + data.getColumnLabel(2) + data.getColumnLabel(3));
+                            var chart = new google.visualization.LineChart(document.getElementById('GridDisplay'));
+                            chart.draw(data, options);
+
+
+                            //alert("data=" + data);
+                            //$('#GridDisplay').html(data);
+                        }
+                    });
+
+                }
+    </script>
+</body>
+</html>

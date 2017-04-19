@@ -1,0 +1,36 @@
+﻿@model Tuple<CampusSecurity.Models.AdvSearchViewModel, CampusSecurity.Models.Discipline>
+
+
+@{ int k = 0;}
+
+@foreach (var item in Model.Item1.answer)
+{
+    int i = 0;
+    
+    <table class="w3-table w3-striped w3-border">
+        <tr>
+            <th>@ViewBag.TypeList[k]</th>
+            @for (int j = 0; j < @ViewBag.YearList.Length; j++)
+            {
+                <th>@ViewBag.YearList[j]</th>
+            }
+        </tr>
+        
+        @foreach(var item2 in item)
+        {
+            <tr>
+                <td>@ViewBag.UniList[i]</td>
+                @foreach(var item3 in item2.rows)
+                {
+                    <td>@item3</td>
+                }
+            </tr>
+            i++;
+        }
+        @{ k++;}
+    </table>
+    <br />
+    <br />
+}
+
+
