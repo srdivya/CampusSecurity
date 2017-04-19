@@ -37,6 +37,36 @@ namespace CampusSecurity.Models
         
     }
 
+    public class TrendsObject
+    {
+
+        readonly String uni_name;
+        public String Uni_name { get { return uni_name; } }
+
+        readonly int year11;
+        readonly int year12;
+        readonly int year13;
+        readonly int year14;
+        readonly int year15;
+
+        public int Year11 { get { return year11; } }
+        public int Year12 { get { return year12; } }
+        public int Year13 { get { return year13; } }
+        public int Year14 { get { return year14; } }
+        public int Year15 { get { return year15; } }
+
+        public TrendsObject(String uni_name, int year11, int year12, int year13, int year14, int year15)
+        {
+            this.uni_name = uni_name;
+            this.year11 = year11;            
+            this.year12 = year12;
+            this.year13 = year13;
+            this.year14 = year14;
+            this.year15 = year15;
+        }
+
+    }
+
     public class RankingsObject
     {
         readonly int incidents;

@@ -12,8 +12,6 @@ namespace MvcMovie.Controllers
     public class HelloWorldController : Controller
     {
 
-
-
         // 
         // GET: /HelloWorld/ 
         static string connectionString = "Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=oracle.cise.ufl.edu)(PORT=1521)))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=orcl)));User Id = menon; Password = Zxqw29!!;";
@@ -124,6 +122,36 @@ namespace MvcMovie.Controllers
         }
 
 
+        //-------------------------------------------------------------------
+
+        [HttpGet]
+        public ActionResult Trends()
+        {
+            UIModel objUI = new UIModel();
+            //LINQ query executed first time search is loaded. List of uni returned, converted to select list and added to objIU object
+
+            objUI.University = getUniversityForTrends().Select(c => new SelectListItem
+            {
+                Text = c.ToString(),
+                Value = c.ToString()
+            }).ToList();
+
+
+            List<String> lstType = new List<string> { "Criminal Offense", "Discipline", "Arrests", "Violence Against Women" };
+
+            lstType.Sort();
+            objUI.Type = lstType.Select(c => new SelectListItem
+            {
+                Text = c.ToString(),
+                Value = c.ToString()
+            }).ToList();
+
+
+            return View(new Tuple<UIModel, SearchViewModel>(objUI, null));
+        }
+
+
+
         //-------------------------
         private List<string> getUniversityForAdv()
         {
@@ -144,6 +172,33 @@ namespace MvcMovie.Controllers
                     lstUni.Add(temp);
                   // uniId.Add(temp, tempInt );
                   //  System.Diagnostics.Debug.WriteLine(temp+" "+tempInt);
+
+                }
+                connection.Close();
+            }
+            return lstUni;
+        }
+
+
+        private List<string> getUniversityForTrends()
+        {
+            List<String> lstUni = new List<string>();
+            using (connection)
+            {
+                string temp;
+                //int tempInt;
+                connection.Open();
+                string sql = "select name || ':' || branch || ':' || city || ':' || state as newname,id from locationyear where location='Non-campus' and year='2014' order by newname asc";
+                OracleCommand cmd = new OracleCommand(sql, connection);
+                cmd.CommandType = System.Data.CommandType.Text;
+                OracleDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    temp = reader.GetString(0);
+                    //tempInt = reader.GetInt32(1);
+                    lstUni.Add(temp);
+                    // uniId.Add(temp, tempInt );
+                    //  System.Diagnostics.Debug.WriteLine(temp+" "+tempInt);
 
                 }
                 connection.Close();
@@ -282,7 +337,119 @@ namespace MvcMovie.Controllers
             //return Json(model);
         }
 
+        public ActionResult trends(String[] Uni, String Type, String SubType)
+        {
+            TrendsModel Tmodel = new TrendsModel();
+            Tmodel.answer = new List<TrendsObject>();
+            String sql = "select * from trends";
+            String sendSubType = SubType;
+            String sendType = Type;
+            if (Type == "Criminal Offense")
+            {
+                sendType = "CRIMINAL_OFFENSE";
+                
+                if (SubType == "Burglary")
+                    sendSubType = "BURGLA";
+                else if (SubType == "Murder")
+                    sendSubType = "MURD";
+                else if (SubType == "Vehicle theft")
+                    sendSubType = "VEHIC";
+                else if (SubType == "Man slaughter")
+                    sendSubType = "NEG_M";
+                else if (SubType == "Robbery")
+                    sendSubType = "ROBBE";
+                else if (SubType == "Forcible Sex offence")
+                    sendSubType = "FORCIB";
+                else if (SubType == "non-forcible sex offence")
+                    sendSubType = "NONFOR";
+                else if (SubType == "Assault")
+                    sendSubType = "AGG_A";
+                else
+                    sendSubType = "ARSON";
 
+            }
+            else if (Type == "Violence Against Women")
+            {
+                sendType = "VAWA";
+                
+                if (SubType == "Stalking")
+                    sendSubType = "Stalk";
+                else if (SubType == "Dating violence")
+                    sendSubType = "Dating";
+                else
+                    sendSubType = "Domest";
+            }
+            else if (Type == "Arrests")
+            {
+                sendType = "ARRESTS";
+                
+
+                if (SubType == "Drug")
+                    sendSubType = "DRUG";
+                else if (SubType == "Weapon")
+                    sendSubType = "Weapon";
+                else
+                    sendSubType = "Liquor";
+            }
+
+            else
+            {
+                
+                sendType = "DISCIPLINE";
+                if (SubType == "Drug")
+                    sendSubType = "DRUG";
+                else if (SubType == "Weapon")
+                    sendSubType = "Weapon";
+                else
+                    sendSubType = "Liquor";
+            }
+
+            using (connection)
+            {
+
+                connection.Open();
+                for (int itr1 = 0; itr1 < Uni.Length; itr1++)
+                {
+                    OracleCommand cmd0 = new OracleCommand("GENERATETREND", connection);
+                    cmd0.CommandType = System.Data.CommandType.StoredProcedure;
+
+                    //cmd0.Parameters.Add(new OracleParameter("TypeFilter", sendType));
+                    //cmd0.Parameters.Add(new OracleParameter("FocusFilter", sendSubType));
+                    //cmd0.Parameters.Add(new OracleParameter("yearFilter", Year));
+                    String[] temp = Uni[itr1].Split(':');
+                    cmd0.Parameters.Add("UniversityFilter", OracleDbType.Varchar2).Value = temp[0];
+                    cmd0.Parameters.Add("BranchFilter", OracleDbType.Varchar2).Value = temp[1];
+                    cmd0.Parameters.Add("CityFilter", OracleDbType.Varchar2).Value = temp[2];
+                    cmd0.Parameters.Add("StateFilter", OracleDbType.Varchar2).Value = temp[3];
+                    cmd0.Parameters.Add("TypeFilter", OracleDbType.Varchar2).Value = sendType;
+                    cmd0.Parameters.Add("FocusFilter", OracleDbType.Varchar2).Value = sendSubType;
+                    //OracleDataAdapter da = new OracleDataAdapter(cmd0);
+                    cmd0.ExecuteNonQuery();
+                    Console.WriteLine();
+                }
+                    //sql = "select * from test_table";
+                    OracleCommand cmd = new OracleCommand(sql, connection);
+                    cmd.CommandType = System.Data.CommandType.Text;
+                    OracleDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        TrendsObject robj = new TrendsObject(reader.GetString(0), reader.GetInt32(1), reader.GetInt32(2), reader.GetInt32(3), reader.GetInt32(4), reader.GetInt32(4));
+                        Tmodel.answer.Add(robj);
+                    }
+
+                OracleCommand cmd2 = new OracleCommand("truncate table trends", connection);
+                cmd2.CommandType = System.Data.CommandType.Text;
+                cmd2.ExecuteNonQuery();
+
+                connection.Close();
+            }
+
+
+            //ViewBag.NbColumns = columns;
+            //ViewBag.Tlist = tempList;
+            //ViewBag.Class_Type = class_type;
+            return View("loadTrends", new Tuple<TrendsModel, Discipline>(Tmodel, null));
+        }
 
         public ActionResult ranking(int Year,String Type, String SubType)
         {
@@ -470,10 +637,12 @@ namespace MvcMovie.Controllers
             ViewBag.model = model;
             return View(model);
         }
-        //public ActionResult Rankings()
+
+        //public ActionResult Trends()
         //{
         //    return View();
         //}
+
 
     }
 }
