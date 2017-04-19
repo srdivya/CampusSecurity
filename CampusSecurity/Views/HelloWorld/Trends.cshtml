@@ -146,28 +146,82 @@
                         success: function (cdata)
                         {
                             alert("data=" + cdata);
-                            var options = {
-                                'title': 'How Much Pizza I Ate Last Night',
-                                'width': 400,
-                                'height': 300
-                            };
-                            alert("data=" + options);
+
                             var data = new google.visualization.DataTable();
-                           
-                            data.addColumn('string', 'Topping');
-                            data.addColumn('number', 'Slices');
+                            /*cdata=[{"Uni_name":"A T Still University of Health Sciences-NYU Lutheran Campus-Brooklyn-NY","Year11":0,"Year12":0,"Year13":0,"Year14":0,"Year15":0},
+                            {"Uni_name":"ABC Beauty Academy-Main Campus-Richardson-TX","Year11":0,"Year12":0,"Year13":0,"Year14":0,"Year15":0}]*/
+
+                            data.addColumn('number', 'Year');
+                            //alert("dataxxyy=" + data.getColumnLabel(0));
+                            //alert("dataLength=" + cdata.length);
+                            var cdatax = JSON.parse(cdata);
+                            for(var i = 0; i < cdatax.length ; i++) {
+                                data.addColumn('number', cdatax[i].Uni_name);
+                            }
+
+                            var options = {
+                                chart: {
+                                    title: 'Trends',
+                                    subtitle: 'Incidents over time'
+                                },
+                                width: 900,
+                                height: 500
+                            };
+                            
+                            for (var i = 0; i < cdatax.length ; i++) {
+                                data.addRows(2011+i, cdatax[i].Uni_name);
+                            }
+
+
                             data.addRows([
-                              ['Mushrooms', 3],
-                              ['Onions', 1],
-                              ['Olives', 1],
-                              ['Zucchini', 1],
-                              ['Pepperoni', 2]
-                            ]);
-                            alert("data=" + data);
+                                [2011, 37.8, 80.8, 41.8],
+                                [2012, 30.9, 69.5, 32.4],
+                                [2013, 25.4, 57, 25.7],
+                                [2014, 11.7, 18.8, 10.5],
+                                [2015, 11.9, 17.6, 10.4],
+                              
+                       ]);
+                                                    //alert("data=" + data);
                             // Set chart options
                             
+                            //data.addColumn('number', 'Day');
+                            //data.addColumn('number', 'Guardians of the Galaxy');
+                            //data.addColumn('number', 'The Avengers');
+                            //data.addColumn('number', 'Transformers: Age of Extinction');
+
+                            //data.addRows([
+                            //  [1, 37.8, 80.8, 41.8],
+                            //  [2, 30.9, 69.5, 32.4],
+                            //  [3, 25.4, 57, 25.7],
+                            //  [4, 11.7, 18.8, 10.5],
+                            //  [5, 11.9, 17.6, 10.4],
+                            //  [6, 8.8, 13.6, 7.7],
+                            //  [7, 7.6, 12.3, 9.6],
+                            //  [8, 12.3, 29.2, 10.6],
+                            //  [9, 16.9, 42.9, 14.8],
+                            //  [10, 12.8, 30.9, 11.6],
+                            //  [11, 5.3, 7.9, 4.7],
+                            //  [12, 6.6, 8.4, 5.2],
+                            //  [13, 4.8, 6.3, 3.6],
+                            //  [14, 4.2, 6.2, 3.4]
+                            //]);
+
+                            //data.addColumn('string', 'Topping');
+                            //data.addColumn('number', 'Slices');
+                            //data.addRows([
+                            //  ['Mushrooms', 3],
+                            //  ['Onions', 1],
+                            //  ['Olives', 1],
+                            //  ['Zucchini', 1],
+                            //  ['Pepperoni', 2]
+                            //]);
+
                             // Instantiate and draw our chart, passing in some options.
-                            var chart = new google.visualization.PieChart(document.getElementById('GridDisplay'));
+
+                            alert("dataxxx=" + options);
+                            alert("dataxx=" + data.getSortedRows(0));
+                            alert("datax=" + data.getColumnLabel(0) + data.getColumnLabel(1) + data.getColumnLabel(2) + data.getColumnLabel(3));
+                            var chart = new google.visualization.LineChart(document.getElementById('GridDisplay'));
                             chart.draw(data, options);
 
 
