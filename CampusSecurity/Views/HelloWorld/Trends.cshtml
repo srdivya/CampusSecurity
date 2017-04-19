@@ -3,6 +3,7 @@
     ViewBag.Title = "Trends";
 }
 @model Tuple<CampusSecurity.Models.UIModel, CampusSecurity.Models.SearchViewModel>
+
 @*<h2>Trends</h2>*@
 
 
@@ -130,18 +131,48 @@
                         $('#SubType').html(items);
                 }
     </script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', { 'packages': ['corechart'] });
 
-    <script>
+        // Set a callback to run when the Google Visualization API is loaded.
+        //google.charts.setOnLoadCallback(senddata);
                 function senddata() {
                     $.ajax({
                         type: "POST",
                         url: '@Url.Action("trends", "HelloWorld")',
                         data: { "Uni": $("#uni").val(), "Type": $("#lstType").val(), "SubType": $("#SubType").val()},//'uni=' + $("uni").val + '&year=' + $("year").val + '&loc=' + $("loc").val,
                         dataType: "html",
-                        success: function (data)
+                        success: function (cdata)
                         {
+                            alert("data=" + cdata);
+                            var options = {
+                                'title': 'How Much Pizza I Ate Last Night',
+                                'width': 400,
+                                'height': 300
+                            };
+                            alert("data=" + options);
+                            var data = new google.visualization.DataTable();
+                           
+                            data.addColumn('string', 'Topping');
+                            data.addColumn('number', 'Slices');
+                            data.addRows([
+                              ['Mushrooms', 3],
+                              ['Onions', 1],
+                              ['Olives', 1],
+                              ['Zucchini', 1],
+                              ['Pepperoni', 2]
+                            ]);
+                            alert("data=" + data);
+                            // Set chart options
+                            
+                            // Instantiate and draw our chart, passing in some options.
+                            var chart = new google.visualization.PieChart(document.getElementById('GridDisplay'));
+                            chart.draw(data, options);
+
+
                             //alert("data=" + data);
-                            $('#GridDisplay').html(data);
+                            //$('#GridDisplay').html(data);
                         }
                     });
 

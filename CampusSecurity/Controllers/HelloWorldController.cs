@@ -337,7 +337,7 @@ namespace MvcMovie.Controllers
             //return Json(model);
         }
 
-        public ActionResult trends(String[] Uni, String Type, String SubType)
+        public JsonResult trends(String[] Uni, String Type, String SubType)
         {
             TrendsModel Tmodel = new TrendsModel();
             Tmodel.answer = new List<TrendsObject>();
@@ -448,7 +448,9 @@ namespace MvcMovie.Controllers
             //ViewBag.NbColumns = columns;
             //ViewBag.Tlist = tempList;
             //ViewBag.Class_Type = class_type;
-            return View("loadTrends", new Tuple<TrendsModel, Discipline>(Tmodel, null));
+            return Json(Tmodel.answer, JsonRequestBehavior.AllowGet);
+            
+            //return View("loadTrends", new Tuple<TrendsModel, Discipline>(Tmodel, null));
         }
 
         public ActionResult ranking(int Year,String Type, String SubType)
