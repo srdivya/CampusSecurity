@@ -226,6 +226,22 @@ namespace MvcMovie.Controllers
             return lstUni;
         }
 
+        public JsonResult tuplecount()
+        {
+            String str = "Select sum(num_rows) from user_tables";
+            int x=0;
+            connection.Open();
+            OracleCommand cmd = new OracleCommand(str, connection);
+            cmd.CommandType = System.Data.CommandType.Text;
+            OracleDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                x = reader.GetInt32(0);
+            }
+            connection.Close();
+            return Json(x);
+        }
+
         public ActionResult loadGrid(String Uni, int Year, String Location, String Type, String SubType)
         {
             SearchViewModel model = new SearchViewModel();

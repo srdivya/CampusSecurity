@@ -26,5 +26,12 @@ namespace CampusSecurity.Controllers
 
             return View();
         }
+
+        public ActionResult TotalTuples()
+        {
+            ViewBag.Message = " ";
+
+            return View();
+        }
     }
 }
