@@ -242,6 +242,9 @@ namespace MvcMovie.Controllers
             }
             int flag = 0;
             Type = (Type == "Criminal Offense") ? "Criminal_Offense" : Type;
+
+            if (Type == "Violence Against Women")
+                Type = "VAWA";
             sql = sql + " from " + Type + " where id in (select id from locationyear where name = '" + Uni + "' AND year = " + Year + " AND location = '" + Location + "')";
             //var temp;
             //Console.WriteLine(sql);

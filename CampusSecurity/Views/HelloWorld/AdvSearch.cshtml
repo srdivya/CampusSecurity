@@ -28,34 +28,42 @@
 
 
     <!---->
-    <div class="w3-container" style="margin-left:250px; margin-top:43px">
-        <h2 class="w3-text-teal" style="margin-left:250px">Advanced Search</h2>
-        <div>
-            <label>University</label>
-            <label style="margin-left:90px">Year</label>
-            <label style="margin-left:50px">Location</label>
-        </div>
+    
+       
         <div style="align-items">
-            <div class="editor-field">  @Html.ListBoxFor(m => m.Item1.University, Model.Item1.University, new { id = "uni", style = "width: 390px; margin-right:25px;float:left" }) </div>
-            <div class="editor-field">  @Html.ListBoxFor(m => m.Item1.Year, Model.Item1.Year, new { id = "year", style = "margin-left:25px;float:left" }) </div>
-            <div class="editor-field">
-                @Html.DropDownListFor(m => m.Item1.Location, Model.Item1.Location, new { id = "loc", style = "width:150px;margin-left:50px;float:left" })
+            
+            <div class="w3-container" style="margin-left:250px; margin-top:43px">
+                <h2 class="w3-text-teal" style="margin-left:250px">Advanced Search</h2>
+                <div>
+                    <label>University</label>
+
+                    <div class="editor-field">  @Html.ListBoxFor(m => m.Item1.University, Model.Item1.University, new { id = "uni", style = "width: 390px; margin-right:25px;float:left" }) </div>
+                </div>
+                <div>
+                    <label style="margin-left:90px">Year</label>
+                    <div class="editor-field">  @Html.ListBoxFor(m => m.Item1.Year, Model.Item1.Year, new { id = "year", style = "margin-left:25px;float:left" }) </div>
+                </div>
+                <div>
+                    <label style="margin-left:50px">Location</label>
+                    <div class="editor-field">
+                        @Html.DropDownListFor(m => m.Item1.Location, Model.Item1.Location, new { id = "loc", style = "width:150px;margin-left:50px;float:left" })
+                    </div>
+                </div>
             </div>
+           
         </div>
 
-
-    </div>
 
     <div class="w3-container" style="margin-left:250px;margin-top:25px">
         <div>
             <label>Type</label>
             
-        </div>
-        <div>
+       
             <div class="editor-field">  @Html.ListBoxFor(m => m.Item1.Type, Model.Item1.Type, new { id = "lstType", style = "width: 150px; margin-right:25px;float:left" }) </div>
             
-        </div>
+        
     </div>
+        </div>
 
     
     <!----->

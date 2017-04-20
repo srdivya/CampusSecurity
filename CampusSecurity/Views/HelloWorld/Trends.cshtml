@@ -179,16 +179,16 @@
 
                             for (var j = 1; j < 5; j++)
                             {
-                                alert("new outer increment");
+                                //alert("new outer increment");
                                 var tempList = [2010 + j];
                                 
                                 for (var i = 0; i < cdatax.length ; i++) {
 
-                                    alert(i);
+                                   // alert(i);
                                     if (j == 1) {
-                                        alert(cdatax[i].Year11 + "x");
+                                       // alert(cdatax[i].Year11 + "x");
                                         tempList.push(cdatax[i].Year11);
-                                        alert(tempList);
+                                        //alert(tempList);
                                     }
                                         
                                     else if (j == 2)
@@ -199,18 +199,18 @@
                                         tempList.push(cdatax[i].Year14);
                                     else
                                         tempList.push(cdatax[i].Year15);
-                                    alert(tempList);
+                                    //alert(tempList);
 
                                 }
-                                alert("xxxxx");
-                                alert(tempList);
+                                //alert("xxxxx");
+                               // alert(tempList);
                                 //alert("column format=" + data.getColumnLabel(0) + data.getColumnLabel(1) + data.getColumnLabel(2) + data.getColumnLabel(3));
                                 data.addRow(tempList);
                             }
 
 
 
-                            alert("dataxx=" + data.getSortedRows(0));
+                           // alert("dataxx=" + data.getSortedRows(0));
 
                        //     data.addRows([
                        //         [2011, 37.8, 80.8, 41.8],
