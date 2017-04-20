@@ -199,6 +199,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HelloWorldController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -284,6 +285,8 @@
     <Content Include="Views\HelloWorld\RankingloadGrid.cshtml" />
     <Content Include="Views\HelloWorld\Trends.cshtml" />
     <Content Include="Views\HelloWorld\loadTrends.cshtml" />
+    <Content Include="Views\HelloWorld\Login.cshtml" />
+    <Content Include="Views\HelloWorld\Reporting.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

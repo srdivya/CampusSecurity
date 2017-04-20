@@ -1,0 +1,101 @@
+﻿@*RAJI - FULL FILE*@
+@model CampusSecurity.Models.LoginModel
+@{
+    ViewBag.Title = "Login";
+}
+
+@*<h2>Login</h2>*@
+
+<html>
+
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<body>
+    <nav class="w3-sidebar w3-bar-block w3-collapse w3-large w3-theme-l5 w3-animate-left" style="z-index:3;width:250px;margin-top:43px;" id="mySidebar">
+        <a href="javascript:void(0)" onclick="w3_close()" class="w3-right w3-xlarge w3-padding-large w3-hover-black w3-hide-large" title="Close Menu">
+            <i class="fa fa-remove"></i>
+        </a>
+        <h4 class="w3-bar-item"><b>Menu</b></h4>
+
+        <a class="w3-bar-item w3-button w3-hover-black" href="#">Search</a>
+        <a class="w3-bar-item w3-button w3-hover-black" href="#">Advanced Search</a>
+        <a class="w3-bar-item w3-button w3-hover-black" href="#">Trends</a>
+        <a class="w3-bar-item w3-button w3-hover-black" href="#">University Rankings</a>
+        <a class="w3-bar-item w3-button w3-hover-black" href="#">Report a Crime</a>
+    </nav>
+    <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+    <div class="w3-container" style="margin-left:250px; margin-top:43px">
+        <h2 class="w3-text-teal" style="margin-left:250px">Login</h2>
+      @using (Html.BeginForm())
+      {
+        @Html.ValidationSummary(true, "Login failed. Check your login details.");
+        <div>
+            <fieldset>
+                <legend>Login</legend>
+                <div class="editor-label">
+                    @Html.LabelFor(u => u.UserName)
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(u => u.UserName)
+                    @Html.ValidationMessageFor(u => u.UserName)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(u => u.Password)
+                </div>
+                <div class="editor-field">
+                    @Html.PasswordFor(u => u.Password)
+                    @Html.ValidationMessageFor(u => u.Password)
+                </div>
+                <input type="submit" value="Log In" />
+            </fieldset>
+        </div>
+      }
+
+    <script>
+            // Get the Sidebar
+            var mySidebar = document.getElementById("mySidebar");
+
+            // Get the DIV with overlay effect
+            var overlayBg = document.getElementById("myOverlay");
+
+            // Toggle between showing and hiding the sidebar, and add overlay effect
+            function w3_open() {
+                if (mySidebar.style.display === 'block') {
+                    mySidebar.style.display = 'none';
+                    overlayBg.style.display = "none";
+                } else {
+                    mySidebar.style.display = 'block';
+                    overlayBg.style.display = "block";
+                }
+            }
+
+            // Close the sidebar with the close button
+            function w3_close() {
+                mySidebar.style.display = "none";
+                overlayBg.style.display = "none";
+            }
+    </script>
+    <script>
+        function senddata() {
+            alert("in senddata");
+            alert("username "+ $("#user").val() + " password:" + $("#pass").val());
+                    $.ajax({
+                        type: "POST",
+                        url: '@Url.Action("Login", "HelloWorld")',
+                        data: { "username": $("#user").val(), "password": $("#pass").val() },
+                        //dataType: "json",
+                        success: function (data)
+                        {
+                            alert("success");
+                           // alert("data" + @ViewBag.Value');
+                            //$('#GridDisplay').html(data);
+                        }
+                    });
+
+                }
+    </script>
+</body>
+</html>

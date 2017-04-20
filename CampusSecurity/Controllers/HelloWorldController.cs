@@ -5,7 +5,7 @@ using System.Web.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-
+using System.Data;
 
 namespace MvcMovie.Controllers
 {
@@ -38,7 +38,7 @@ namespace MvcMovie.Controllers
                 Text = c.ToString(),
                 Value = c.ToString()
             }).ToList();
-            List<int> lstYear = new List<int> { 2011, 2012, 2013, 2014, 2015 };
+            List<int> lstYear = new List<int> { 2011, 2012, 2013, 2014, 2015,2016,2017 };
             objUI.Year = lstYear.Select(c => new SelectListItem
             {
                 Text = c.ToString(),
@@ -59,9 +59,128 @@ namespace MvcMovie.Controllers
             }).ToList();
             return View(new Tuple<UIModel,SearchViewModel>(objUI,null));
         }
+        //Raji Start
+        [HttpGet]
+        public ActionResult Login()
+        {
+            return View();
+        }
+        [HttpGet]
+        public ActionResult Reporting()
+        {
+            UIModel objUI = new UIModel();
+            //LINQ query executed first time search is loaded. List of uni returned, converted to select list and added to objIU object
+            objUI.University = getUniversityForTrends().Select(c => new SelectListItem
+            {
+                Text = c.ToString(),
+                Value = c.ToString()
+            }).ToList();
+            List<int> lstYear = new List<int> { 2016, 2017 };
+            objUI.Year = lstYear.Select(c => new SelectListItem
+            {
+                Text = c.ToString(),
+                Value = c.ToString()
+            }).ToList();
+            List<String> lstLoc = new List<string> { "Non-campus", "On-campus", "Public Property", "Reported by Local Police", "Residence Hall" };
+            List<String> lstType = new List<string> { "Criminal Offense", "Discipline", "Arrests", "Violence Against Women" };
+            objUI.Location = lstLoc.Select(c => new SelectListItem
+            {
+                Text = c.ToString(),
+                Value = c.ToString()
+            }).ToList();
+            lstType.Sort();
+            objUI.Type = lstType.Select(c => new SelectListItem
+            {
+                Text = c.ToString(),
+                Value = c.ToString()
+            }).ToList();
+            return View(new Tuple<UIModel, SearchViewModel>(objUI, null));
+        }
+        [HttpPost]
+        public ActionResult Reporting(String Uni, int Year, String Location, String Type, String SubType)
+        {
+            String[] uni_split = Uni.Split(':');
+            string sql1;
+            String sql_part = "(select id from locationyear where name ='" + uni_split[0] +
+                    "' and year = " + Year + " and location = '" + Location + "')";
+            connection.Open();
+            OracleCommand cmd = new OracleCommand(sql_part, connection);
+            cmd.CommandType = System.Data.CommandType.Text;
+            OracleDataReader reader = cmd.ExecuteReader();
+            if (reader.HasRows == false)
+            {
+                sql1 = "Insert into locationyear(name,branch,city,state,year,location) values(";
+                for (int i = 0; i < uni_split.Length; i++)
+                {
+                    sql1 += "'" + uni_split[i] + "', ";
+                }
+                sql1 += Year + ",'" + Location + "')";
+                cmd = new OracleCommand(sql1, connection);
+                cmd.CommandType = System.Data.CommandType.Text;
+                reader = cmd.ExecuteReader();
+            }
 
+            //select * from Criminal_Offense where id in (select id from locationyear where name='University of Florida' 
+            //and year = 2015 and location = 'Off-campus');
+            Type = (Type == "Criminal Offense") ? "Criminal_Offense" : Type;
 
+            if (Type == "Violence Against Women")
+                Type = "VAWA";
+            sql1 = "select * from " + Type + " where id in " + sql_part;
+            cmd = new OracleCommand(sql1, connection);
+            cmd.CommandType = System.Data.CommandType.Text;
+            reader = cmd.ExecuteReader();
+            if(reader.HasRows == false)
+            {
+                sql_part = ") values(" + sql_part + ", 1)";
+                //insert into Criminal_Offense values((select id from 
+                //locationyear where name='University of Florida' and year = 2015 and location = 'Off-campus'),0,1,1,1,0,0,0,0,0);
+                sql1 = "insert into " + Type + "(id, " + SubType + sql_part; ;
+            }
+            else
+            {
+                //update arrests  set drug = (select drug from arrests where id= (select id from locationyear where name='University of Florida' and year = 2016 and location = 'Off-campus'))
+                //+ 1 where id = (select id from locationyear where name='University of Florida' and year = 2016 and location = 'Off-campus');
+                sql1 = "update " + Type + " set " + SubType + " = (select " + SubType + " from " + Type + " where id = " + sql_part + "+ 1)";
+                sql1 += " where id = " + sql_part;
+            }
+            cmd = new OracleCommand(sql1, connection);
+            cmd.CommandType = System.Data.CommandType.Text;
+            reader = cmd.ExecuteReader();
+            connection.Close();
+            
+            return new JavaScriptResult { Script = "alert('Successfully registered');" };
+            //return View("getting");
+        }
 
+        [HttpPost]
+        public ActionResult Login(LoginModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                if (model.IsValid(model.UserName, model.Password))
+                {
+                    //FormsAuthentication.SetAuthCookie(user.UserName, user.RememberMe);
+                    return RedirectToAction("Reporting", "HelloWorld");
+                }
+                else
+                {
+                    return View(model);
+                }
+            }
+            return View(model);
+        }
+        //Raji End
+
+        //Divya Start
+        private ActionResult RedirectToLocal(string returnUrl)
+        {
+            if (Url.IsLocalUrl(returnUrl))
+            {
+                return Redirect(returnUrl);
+            }
+            return RedirectToAction("Index", "Home");
+        }
 
         [HttpGet]
         public ActionResult AdvSearch()
@@ -149,9 +268,7 @@ namespace MvcMovie.Controllers
 
             return View(new Tuple<UIModel, SearchViewModel>(objUI, null));
         }
-
-
-
+        
         //-------------------------
         private List<string> getUniversityForAdv()
         {
