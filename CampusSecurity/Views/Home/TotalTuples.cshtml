@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "Total Tuples";
+}
+<h2>@ViewBag.Title</h2>
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Total Tuples</title>
+</head>
+<body>
+    <div>
+        <div class="w3-container" style="margin-left:0px;margin-top:15px">
+            <button class="w3-btn w3-white w3-border w3-border-green w3-round-xlarge" id="btnSearch" value="Search" onclick="senddata()">Total Tuples</button>
+        </div>
+
+        <div id="tuple">
+
+        </div>
+    </div>
+    <script>
+                function senddata() {
+                    $.ajax({
+                        type: "POST",
+                        url: '@Url.Action("tuplecount", "HelloWorld")',
+                        //data: { },
+                        dataType: "html",
+                        success: function (data)
+                        {
+                            $('#tuple').html(data);
+                        }
+                    });
+
+                }
+    </script>
+</body>
+</html>

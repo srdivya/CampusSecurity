@@ -284,6 +284,7 @@
     <Content Include="Views\HelloWorld\RankingloadGrid.cshtml" />
     <Content Include="Views\HelloWorld\Trends.cshtml" />
     <Content Include="Views\HelloWorld\loadTrends.cshtml" />
+    <Content Include="Views\Home\TotalTuples.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
