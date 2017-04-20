@@ -287,6 +287,7 @@
     <Content Include="Views\HelloWorld\loadTrends.cshtml" />
     <Content Include="Views\HelloWorld\Login.cshtml" />
     <Content Include="Views\HelloWorld\Reporting.cshtml" />
+	<Content Include="Views\Home\TotalTuples.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
