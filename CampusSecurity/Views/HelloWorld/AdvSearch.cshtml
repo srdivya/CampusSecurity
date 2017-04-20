@@ -4,7 +4,6 @@
 }
 @model Tuple<CampusSecurity.Models.UIModel, CampusSecurity.Models.SearchViewModel>
 @*<h2>AdvSearch</h2>*@
-
 <html>
 
 <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
@@ -12,65 +11,58 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <body>
-    <nav class="w3-sidebar w3-bar-block w3-collapse w3-large w3-theme-l5 w3-animate-left" style="z-index:3;width:250px;margin-top:43px;" id="mySidebar">
-        <a href="javascript:void(0)" onclick="w3_close()" class="w3-right w3-xlarge w3-padding-large w3-hover-black w3-hide-large" title="Close Menu">
-            <i class="fa fa-remove"></i>
-        </a>
-        <h4 class="w3-bar-item"><b>Menu</b></h4>
+    <fieldset>
+        <nav class="w3-sidebar w3-bar-block w3-collapse w3-large w3-theme-l5 w3-animate-left" style="z-index:3;width:250px;margin-top:43px;" id="mySidebar">
+            <a href="javascript:void(0)" onclick="w3_close()" class="w3-right w3-xlarge w3-padding-large w3-hover-black w3-hide-large" title="Close Menu">
+                <i class="fa fa-remove"></i>
+            </a>
+            <h4 class="w3-bar-item"><b>Menu</b></h4>
+            <a class="w3-bar-item w3-button" href="#">@Html.ActionLink("Search", "Search", "HelloWorld")</a>
+            <a class="w3-bar-item w3-button" href="#">@Html.ActionLink("Advanced Search", "AdvSearch", "HelloWorld")</a>
+            <a class="w3-bar-item w3-button" href="#">@Html.ActionLink("Trends", "Trends", "HelloWorld")</a>
+            <a class="w3-bar-item w3-button" href="#">@Html.ActionLink("University Rankings", "Rankings", "HelloWorld")</a>
+            <a class="w3-bar-item w3-button" href="#">@Html.ActionLink("Reporting a Crime", "Login", "HelloWorld")</a>
+        </nav>
+        <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+        <!---->
+        <div class="w3-container" style="margin-left:250px; margin-top:43px">
+            <h2 class="w3-text-teal" style="margin-left:250px">Advanced Search</h2>
+            <div>
+                <label>University</label>
+                <label style="margin-left:240px">Year</label>
+                <label style="margin-left:65px">Location</label>
+            </div>
+            <div style="align-items">
+                <div class="editor-field">@Html.ListBoxFor(m => m.Item1.University, Model.Item1.University, new { id = "uni", style = "width: 390px; margin-right:25px;float:left" })</div>
+                     <div class="editor-field">  @Html.ListBoxFor(m => m.Item1.Year, Model.Item1.Year, new { id = "year", style = "margin-left:25px;float:left" }) </div>
+                    <div class="editor-field">
+                        @Html.DropDownListFor(m => m.Item1.Location, Model.Item1.Location, new { id = "loc", style = "width:150px;margin-left:50px;float:left" })
+                    </div>
+                </div>
+            @*@Html.ListBoxFor(m => m.Item1.University, Model.Item1.University, new { id = "uni", style = "width: 390px; margin-right:25px;float:left" })*@
 
-        <a class="w3-bar-item w3-button w3-hover-black" href="#">Search</a>
-        <a class="w3-bar-item w3-button w3-hover-black" href="#">@Html.ActionLink("Advanced Search", "AdvSearch", "HelloWorld")</a>
-        <a class="w3-bar-item w3-button w3-hover-black" href="#">Trends</a>
-        <a class="w3-bar-item w3-button w3-hover-black" href="#">University Rankings</a>
-        <a class="w3-bar-item w3-button w3-hover-black" href="#">Report a Crime</a>
-    </nav>
-    <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
-
-
-    <!---->
-    <div class="w3-container" style="margin-left:250px; margin-top:43px">
-        <h2 class="w3-text-teal" style="margin-left:250px">Advanced Search</h2>
-        <div>
-            <label>University</label>
-            <label style="margin-left:90px">Year</label>
-            <label style="margin-left:50px">Location</label>
         </div>
-        <div style="align-items">
-            <div class="editor-field">  @Html.ListBoxFor(m => m.Item1.University, Model.Item1.University, new { id = "uni", style = "width: 390px; margin-right:25px;float:left" }) </div>
-            <div class="editor-field">  @Html.ListBoxFor(m => m.Item1.Year, Model.Item1.Year, new { id = "year", style = "margin-left:25px;float:left" }) </div>
-            <div class="editor-field">
-                @Html.DropDownListFor(m => m.Item1.Location, Model.Item1.Location, new { id = "loc", style = "width:150px;margin-left:50px;float:left" })
+        <div class="w3-container" style="margin-left:250px;margin-top:25px">
+            <div>
+                <label>Type</label>
+
+            </div>
+            <div>
+                <div class="editor-field">  @Html.ListBoxFor(m => m.Item1.Type, Model.Item1.Type, new { id = "lstType", style = "width: 150px; margin-right:25px;float:left" }) </div>
+
             </div>
         </div>
 
+        <!----->
+        <div class="w3-container" style="margin-left:500px;margin-top:25px">
 
-    </div>
-
-    <div class="w3-container" style="margin-left:250px;margin-top:25px">
-        <div>
-            <label>Type</label>
-            
+            <button class="w3-btn w3-white w3-border w3-border-green w3-round-xlarge" id="btnSearch" value="Search" onclick="senddata()">Search</button>
         </div>
-        <div>
-            <div class="editor-field">  @Html.ListBoxFor(m => m.Item1.Type, Model.Item1.Type, new { id = "lstType", style = "width: 150px; margin-right:25px;float:left" }) </div>
-            
+        <!--grid display gets automatically populated by ajax call -->
+        <div id="GridDisplay" style="margin-top:50px;margin-left:250px">
         </div>
-    </div>
 
-    
-    <!----->
-
-    <div class="w3-container" style="margin-left:500px;margin-top:25px">
-        
-        <button class="w3-btn w3-white w3-border w3-border-green w3-round-xlarge" id="btnSearch" value="Search" onclick="senddata()">Search</button>
-    </div>
-
-    <!--grid display gets automatically populated by ajax call -->
-    <div id="GridDisplay" style="margin-top:50px;margin-left:250px">
-
-    </div>
-
-    <script>
+        <script>
             // Get the Sidebar
             var mySidebar = document.getElementById("mySidebar");
 
@@ -93,8 +85,8 @@
                 mySidebar.style.display = "none";
                 overlayBg.style.display = "none";
             }
-    </script>
-    <script>
+        </script>
+        <script>
                 function senddata() {
                     $.ajax({
                         type: "POST",
@@ -109,7 +101,7 @@
                     });
 
                 }
-    </script>
+        </script>
 
 </body>
 </html>
